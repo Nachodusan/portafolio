@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dusan — Full-Stack Developer &amp; System Architect</title>
+  <meta name="description" content="Ignacio Duque Sandoval - Desarrollador Full Stack especializado en backend, arquitectura de sistemas y construcción de aplicaciones end-to-end robustas y escalables." />
+  <meta name="author" content="Ignacio Duque" />
+  <meta name="keywords" content="Desarrollador Full Stack,System Architect,Next.js,React,TypeScript,Node.js,Python,Backend,Frontend,Ignacio Duque,Dusan" />
+
+  <meta property="og:title" content="Dusan | Full-Stack Developer &amp; System Architect" />
+  <meta property="og:description" content="Transformando ideas complejas en ecosistemas digitales robustos. Especialista en Arquitectura de Software y Desarrollo Full Stack." />
+  <meta property="og:url" content="https://dusan.codes" />
+  <meta property="og:site_name" content="Dusan Portfolio" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Anton&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- PROGRESS BAR -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <a class="nav__brand" href="#home">
+      <span class="nav__brand-mark">&lt;/&gt;</span>
+      <span class="nav__brand-name">Dev.Dusan</span>
+    </a>
+    <nav class="nav__links" id="nav-links">
+      <a href="#about" data-nav>Capabilities</a>
+      <a href="#mobile" data-nav>Mobile</a>
+      <a href="#projects" data-nav>Work</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="nav__cv" href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+        <span>Currículum</span>
+        <i data-lucide="arrow-up-right"></i>
+      </a>
+      <button class="nav__burger" id="nav-burger" aria-label="Abrir menú">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-overlay__inner">
+      <a href="#home" data-nav>Inicio<i data-lucide="arrow-right"></i></a>
+      <a href="#about" data-nav>Capabilities<i data-lucide="arrow-right"></i></a>
+      <a href="#mobile" data-nav>Mobile<i data-lucide="arrow-right"></i></a>
+      <a href="#projects" data-nav>Work<i data-lucide="arrow-right"></i></a>
+      <a href="#contact" data-nav>Contact<i data-lucide="arrow-right"></i></a>
+      <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Currículum<i data-lucide="arrow-up-right"></i></a>
+    </div>
+    <div class="menu-overlay__foot">
+      <a href="https://github.com/Nachodusan" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/ignacio-d-361698102/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:dusanemp@gmail.com">Email</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+
+      <!-- 3D PHYSICS BADGE (three.js + rapier) -->
+      <canvas id="badge3d" aria-label="Gafete 3D arrastrable"></canvas>
+
+      <div class="hero__meta">
+        <span class="dot"></span>
+        <span class="mono">Disponible · Freelance &amp; Colaboraciones · 2026</span>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="hero__line" data-line="1"><span class="word">FULL</span><span class="dot-divider">·</span><span class="word">STACK</span></span>
+        <span class="hero__line" data-line="2"><span class="word">SYSTEM</span></span>
+        <span class="hero__line hero__line--accent" data-line="3"><span class="word">ARCHITECT</span></span>
+      </h1>
+
+      <div class="hero__base">
+        <div class="hero__bio">
+          <p class="mono hero__bio-lbl">[ 01 — Quién soy ]</p>
+          <p class="hero__bio-text">
+            Soy desarrollador Full Stack con fortaleza en backend, arquitectura de sistemas y construcción de aplicaciones end-to-end. Diseño soluciones completas cuidando estructura, validación de datos, automatización, escalabilidad y despliegue.
+          </p>
+          <p class="mono hero__bio-name">— Ignacio Duque Sandoval</p>
+        </div>
+
+        <div class="hero__cta-wrap">
+          <a href="#contact" class="magnetic-cta" data-cursor="cta">
+            <span>Iniciar<br/>conversación</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll">
+        <span class="mono">scroll</span>
+        <span class="hero__scroll-line"><span></span></span>
+      </a>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="about" class="capabilities">
+      <header class="section__header">
+        <span class="section__num mono">(02)</span>
+        <span class="section__lbl mono">Capabilities</span>
+        <h2 class="section__title">
+          Más allá del código:<br/>
+          <em>Soluciones integrales.</em>
+        </h2>
+        <p class="section__lead">
+          No me limito a escribir funciones; diseño ecosistemas. Desde la arquitectura de datos hasta la experiencia final, mi enfoque es construir sistemas robustos, escalables y útiles.
+        </p>
+      </header>
+
+      <div class="cap-list">
+        <article class="cap-block reveal">
+          <div class="cap-block__num">01</div>
+          <div class="cap-block__main">
+            <h3 class="cap-block__title">Frontend<br/>Reactivo.</h3>
+            <p class="cap-block__desc">Interfaces modernas, rápidas y accesibles con Next.js.</p>
+            <ul class="chip-list">
+              <li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind</li>
+            </ul>
+          </div>
+          <div class="cap-block__icon"><i data-lucide="panels-top-left"></i></div>
+        </article>
+
+        <article class="cap-block reveal">
+          <div class="cap-block__num">02</div>
+          <div class="cap-block__main">
+            <h3 class="cap-block__title">Backend<br/>Robusto.</h3>
+            <p class="cap-block__desc">APIs seguras y bases de datos optimizadas con Supabase/SQL y Node.</p>
+            <ul class="chip-list">
+              <li>Node.js</li><li>PostgreSQL</li><li>MongoDB</li><li>REST APIs</li>
+            </ul>
+          </div>
+          <div class="cap-block__icon"><i data-lucide="server"></i></div>
+        </article>
+
+        <article class="cap-block reveal">
+          <div class="cap-block__num">03</div>
+          <div class="cap-block__main">
+            <h3 class="cap-block__title">Entrenador<br/>de IA.</h3>
+            <p class="cap-block__desc">Diseño y entreno modelos de IA adaptados a cada caso: desde fine-tuning de LLMs y pipelines RAG hasta inferencia local optimizada. Curado de datasets, evaluación rigurosa y decisión técnica sobre cuándo entrenar, recuperar o combinar.</p>
+            <ul class="chip-list">
+              <li>LLMs</li><li>Fine-tuning</li><li>RAG</li><li>Embeddings</li><li>Datasets</li><li>MLX · PyTorch</li><li>Prompt Engineering</li>
+            </ul>
+          </div>
+          <div class="cap-block__icon"><i data-lucide="brain-circuit"></i></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- KINETIC MARQUEE -->
+    <section class="kinetic" aria-hidden="true">
+      <div class="kinetic__track" id="kinetic-track">
+        <span>React</span><span>•</span>
+        <span>Next.js</span><span>•</span>
+        <span>TypeScript</span><span>•</span>
+        <span>Node.js</span><span>•</span>
+        <span>PostgreSQL</span><span>•</span>
+        <span>MongoDB</span><span>•</span>
+        <span>Flutter</span><span>•</span>
+        <span>Kotlin</span><span>•</span>
+        <span>Arduino</span><span>•</span>
+        <span>C/C++</span><span>•</span>
+        <span>Tailwind</span><span>•</span>
+        <span>REST APIs</span><span>•</span>
+        <!-- dup -->
+        <span>React</span><span>•</span>
+        <span>Next.js</span><span>•</span>
+        <span>TypeScript</span><span>•</span>
+        <span>Node.js</span><span>•</span>
+        <span>PostgreSQL</span><span>•</span>
+        <span>MongoDB</span><span>•</span>
+        <span>Flutter</span><span>•</span>
+        <span>Kotlin</span><span>•</span>
+        <span>Arduino</span><span>•</span>
+        <span>C/C++</span><span>•</span>
+        <span>Tailwind</span><span>•</span>
+        <span>REST APIs</span><span>•</span>
+      </div>
+    </section>
+
+    <!-- MOBILE / PHONE -->
+    <section id="mobile" class="mobile">
+      <div class="mobile__inner">
+        <div class="mobile__copy">
+          <header class="section__header section__header--light">
+            <span class="section__num mono">(03)</span>
+            <span class="section__lbl mono">Mobile · Engineering</span>
+            <h2 class="section__title">
+              Hecho para<br/>
+              <em>cada pantalla.</em>
+            </h2>
+            <p class="section__lead">
+              Experiencias nativas para <strong>iOS &amp; Android</strong> con motores multiplataforma — Flutter para velocidad de iteración, Kotlin para integración nativa profunda.
+            </p>
+          </header>
+
+          <ul class="feature-list">
+            <li>
+              <i data-lucide="bell"></i>
+              <div>
+                <h4>Notificaciones Push</h4>
+                <p>Engagement en tiempo real con alertas instantáneas.</p>
+              </div>
+            </li>
+            <li>
+              <i data-lucide="map-pin"></i>
+              <div>
+                <h4>Geolocalización</h4>
+                <p>Servicios basados en ubicación y mapas interactivos.</p>
+              </div>
+            </li>
+            <li>
+              <i data-lucide="wifi-off"></i>
+              <div>
+                <h4>Modo Offline</h4>
+                <p>Funcionalidad continua sin conexión a internet.</p>
+              </div>
+            </li>
+            <li>
+              <i data-lucide="zap"></i>
+              <div>
+                <h4>Alto Rendimiento</h4>
+                <p>Animaciones fluidas a 60fps y optimización nativa.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mobile__phone">
+          <div class="phone-mockup-wrapper">
+            <div class="phone-drag-guide">
+              <i data-lucide="rotate-3d"></i>
+              <span>Arrastra el dispositivo</span>
+            </div>
+
+            <div class="device-toggle-bar">
+              <button class="device-toggle-btn active" id="toggle-ios">
+                <i data-lucide="apple"></i>
+                <span>iOS</span>
+              </button>
+              <button class="device-toggle-btn" id="toggle-android">
+                <i data-lucide="play"></i>
+                <span>Android</span>
+              </button>
+            </div>
+
+            <div class="phone-3d-scene ios" id="phone-3d-scene">
+              <div class="phone-3d-body" id="phone-3d-body">
+                <div class="phone-frame">
+                  <div class="phone-notch">
+                    <div class="phone-notch-content"></div>
+                  </div>
+
+                  <div class="phone-screen-viewport">
+                    <div class="phone-status-bar">
+                      <span>19:54</span>
+                      <div class="phone-status-right">
+                        <i data-lucide="signal"></i>
+                        <i data-lucide="wifi"></i>
+                        <i data-lucide="battery"></i>
+                      </div>
+                    </div>
+
+                    <div class="phone-app-workspace">
+                      <div class="sim-screen active" id="screen-home">
+                        <div class="phone-grid-apps">
+                          <button class="phone-app-button app-profile" data-app="profile" aria-label="Perfil">
+                            <div class="phone-app-icon"><i data-lucide="user"></i></div>
+                            <span class="phone-app-lbl">Perfil</span>
+                          </button>
+                          <button class="phone-app-button app-projects" data-app="projects" aria-label="Proyectos">
+                            <div class="phone-app-icon"><i data-lucide="folder"></i></div>
+                            <span class="phone-app-lbl">Proyectos</span>
+                          </button>
+                          <button class="phone-app-button app-contact" data-app="contact" aria-label="Contacto">
+                            <div class="phone-app-icon"><i data-lucide="mail"></i></div>
+                            <span class="phone-app-lbl">Contacto</span>
+                          </button>
+                          <button class="phone-app-button app-github" data-app="github" aria-label="GitHub">
+                            <div class="phone-app-icon"><i data-lucide="github"></i></div>
+                            <span class="phone-app-lbl">GitHub</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="sim-screen" id="screen-profile">
+                        <div class="sim-app-header">
+                          <span class="sim-app-title"><i data-lucide="user"></i>Perfil Dusan</span>
+                          <button class="sim-app-close">✕</button>
+                        </div>
+                        <div class="sim-scroll-body">
+                          <div class="sim-chat-area" id="chat-msg-area">
+                            <div class="sim-chat-bubble dusan">
+                              ¡Hola! Soy Ignacio. ¿Qué te gustaría saber sobre mis habilidades de desarrollo?
+                            </div>
+                          </div>
+                          <div class="sim-chat-inputs">
+                            <button class="sim-chat-choice-btn" data-chat-opt="fav">¿Cuál es tu stack preferido?</button>
+                            <button class="sim-chat-choice-btn" data-chat-opt="projs">¿Qué proyectos buscas?</button>
+                            <button class="sim-chat-choice-btn" data-chat-opt="avail">¿Estás disponible?</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="sim-screen" id="screen-projects">
+                        <div class="sim-app-header">
+                          <span class="sim-app-title"><i data-lucide="folder"></i>Proyectos</span>
+                          <button class="sim-app-close">✕</button>
+                        </div>
+                        <div class="sim-scroll-body">
+                          <div class="sim-proj-card">
+                            <h5>🛒 E-Commerce SaaS</h5>
+                            <p>Gestión de inventario y Stripe.</p>
+                          </div>
+                          <div class="sim-proj-card">
+                            <h5>📋 Registro Masivo</h5>
+                            <p>Offline-first local DB sync.</p>
+                          </div>
+                          <div class="sim-proj-card">
+                            <h5>📡 Monitoreo IoT</h5>
+                            <p>Gráficos y MQTT backend.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="sim-screen" id="screen-github">
+                        <div class="sim-app-header">
+                          <span class="sim-app-title"><i data-lucide="git-branch"></i>Commits</span>
+                          <button class="sim-app-close">✕</button>
+                        </div>
+                        <div class="sim-scroll-body">
+                          <div class="sim-github-chart">
+                            <div class="sim-chart-lbl">Contribuciones</div>
+                            <div class="sim-chart-grid" id="github-chart-cells"></div>
+                          </div>
+                          <div id="commit-feed-area" style="margin-top:0.8rem"></div>
+                        </div>
+                      </div>
+
+                      <div class="sim-screen" id="screen-contact">
+                        <div class="sim-app-header">
+                          <span class="sim-app-title"><i data-lucide="send"></i>Contacto</span>
+                          <button class="sim-app-close">✕</button>
+                        </div>
+                        <div class="sim-scroll-body">
+                          <div class="sim-form-group">
+                            <label for="sim-name">Nombre</label>
+                            <input type="text" id="sim-name" placeholder="Tu nombre" />
+                          </div>
+                          <div class="sim-form-group">
+                            <label for="sim-email">Email</label>
+                            <input type="email" id="sim-email" placeholder="correo@ejemplo.com" />
+                          </div>
+                          <div class="sim-form-group">
+                            <label for="sim-msg">Mensaje</label>
+                            <textarea id="sim-msg" rows="3" placeholder="Mensaje..."></textarea>
+                          </div>
+                          <button class="sim-app-btn" id="sim-contact-submit">Componer Email</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="phone-home-indicator" id="phone-home-indicator"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="work">
+      <header class="section__header">
+        <span class="section__num mono">(04)</span>
+        <span class="section__lbl mono">Selected Work · 2024–2026</span>
+        <h2 class="section__title">
+          Trabajo<br/>
+          <em>seleccionado.</em>
+        </h2>
+        <p class="section__lead">
+          Tres proyectos que reflejan experiencia en e-commerce, datos a escala y sistemas IoT.
+        </p>
+        <a class="section__link" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
+          <i data-lucide="github"></i>
+          <span>Ver más en GitHub</span>
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+      </header>
+
+      <div class="case-list">
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(01)</span>
+            <span class="case__tag mono">Proyecto Web</span>
+          </div>
+          <h3 class="case__title">Plataforma de Comercio Electrónico</h3>
+          <ul class="case__points">
+            <li>Implementación de sistema de gestión de productos e inventario.</li>
+            <li>Integración de APIs para manejo dinámico de datos.</li>
+            <li>Panel administrativo para gestión de ventas y productos.</li>
+            <li>Interfaz responsiva optimizada para dispositivos móviles.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>React</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>REST APIs</li><li>PostgreSQL (SQL)</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/inthebox">
+            <span>Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(02)</span>
+            <span class="case__tag mono">Plataforma Web &amp; Mobile</span>
+          </div>
+          <h3 class="case__title">Sistema de Registro Masivo de Datos</h3>
+          <ul class="case__points">
+            <li>Arquitectura de base de datos escalable para manejo de grandes volúmenes de datos.</li>
+            <li>Plataforma web para visualización y gestión de registros en tiempo real.</li>
+            <li>Aplicaciones móviles multiplataforma con Kotlin y Flutter.</li>
+            <li>Optimización del flujo de captura y organización de datos.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>React</li><li>JavaScript</li><li>PostgreSQL (SQL)</li><li>MongoDB (NoSQL)</li><li>REST APIs</li><li>Kotlin</li><li>Flutter</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
+            <span>Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(03)</span>
+            <span class="case__tag mono">Sistema IoT</span>
+          </div>
+          <h3 class="case__title">Plataforma IoT para Monitoreo de Sensores</h3>
+          <ul class="case__points">
+            <li>Integración de sensores y microcontroladores con APIs.</li>
+            <li>Almacenamiento de datos de sensores en PostgreSQL.</li>
+            <li>Dashboard web para visualización de métricas en tiempo real.</li>
+            <li>Aplicación móvil para control remoto de dispositivos.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>Arduino (C/C++)</li><li>React</li><li>JavaScript</li><li>REST APIs</li><li>PostgreSQL (SQL)</li><li>Flutter</li><li>Kotlin</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
+            <span>Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(04)</span>
+            <span class="case__tag mono">IA Conversacional</span>
+          </div>
+          <h3 class="case__title">Che IA — Asistente de voz rioplatense con persona porteña</h3>
+          <ul class="case__points">
+            <li>Sistema conversacional que combina Llama 3.1 8B + RAG sobre 319 ejemplos curados.</li>
+            <li>TTS local con voz argentina + post-procesador léxico de 150+ reglas.</li>
+            <li>Pipeline corriendo end-to-end en Apple Silicon, sin dependencias cloud.</li>
+            <li>Decisión arquitectónica documentada: prompt engineering + retrieval supera al fine-tuning LoRA en datasets chicos de tareas estilísticas (descartadas 3 iteraciones).</li>
+          </ul>
+          <ul class="chip-list">
+            <li>Llama 3.1 8B (MLX)</li><li>BM25 Retrieval</li><li>Piper TTS</li><li>React + Vite</li><li>FastAPI</li><li>Web Speech API</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/ia-rioplatense">
+            <span>Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <span class="section__num mono">(05)</span>
+      <span class="section__lbl mono">Let's build</span>
+
+      <h2 class="contact__title">
+        <span>LET'S</span>
+        <span>BUILD</span>
+        <span><em>SOMETHING.</em></span>
+      </h2>
+
+      <p class="contact__lead">
+        ¿Tienes un proyecto en mente o simplemente quieres conectar?
+        Mi bandeja de entrada siempre está abierta para nuevas oportunidades.
+      </p>
+
+      <div class="contact__cta-wrap">
+        <button class="magnetic-cta magnetic-cta--lg" id="main-contact-trigger" data-cursor="cta">
+          <span>Iniciar<br/>proyecto</span>
+          <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="contact__links">
+        <li><a href="mailto:dusanemp@gmail.com"><span class="mono">Email</span><span>dusanemp@gmail.com</span><i data-lucide="arrow-up-right"></i></a></li>
+        <li><a href="https://wa.me/528124663818?text=Hola%2C%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer"><span class="mono">WhatsApp</span><span>+52 81 2466 3818</span><i data-lucide="arrow-up-right"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/ignacio-d-361698102/" target="_blank" rel="noopener noreferrer"><span class="mono">LinkedIn</span><span>/ignacio-d-361698102</span><i data-lucide="arrow-up-right"></i></a></li>
+        <li><a href="https://github.com/Nachodusan" target="_blank" rel="noopener noreferrer"><span class="mono">GitHub</span><span>@nachodusan</span><i data-lucide="arrow-up-right"></i></a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="foot__row">
+      <span class="mono">© 2026 — Ignacio Duque Sandoval</span>
+      <span class="mono">Built in MX · dusan.codes</span>
+      <a class="mono" href="#home">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP BUTTON -->
+  <a href="https://wa.me/528124663818?text=Hola%2C%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer" class="wa-fab" aria-label="WhatsApp">
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewbox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
+    </svg>
+  </a>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal" id="success-modal">
+    <div class="modal__panel">
+      <header class="modal__head">
+        <span class="modal__title"><i data-lucide="mail"></i>Enviar mensaje</span>
+        <button class="modal__close" id="close-modal-btn" aria-label="Cerrar">✕</button>
+      </header>
+
+      <form class="modal__form" id="portfolio-contact-form">
+        <div class="field">
+          <input type="text" id="user-name" class="field__input" placeholder=" " required />
+          <label for="user-name" class="field__label">Tu nombre</label>
+        </div>
+        <div class="field">
+          <input type="email" id="user-email" class="field__input" placeholder=" " required />
+          <label for="user-email" class="field__label">Tu email</label>
+        </div>
+        <div class="field">
+          <textarea id="user-message" class="field__input" rows="4" placeholder=" " required></textarea>
+          <label for="user-message" class="field__label">Cuéntame sobre tu proyecto…</label>
+        </div>
+
+        <div class="modal__actions">
+          <button type="button" class="btn btn--ghost" id="direct-email-btn">Email Directo</button>
+          <button type="submit" class="btn btn--solid">
+            <span>Enviar</span>
+            <i data-lucide="send"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
+  <script src="script.js"></script>
+  <script type="module" src="badge3d.js"></script>
+</body>
+</html>
