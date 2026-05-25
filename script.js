@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const directEmailBtn = document.getElementById('direct-email-btn');
   const inputFields = document.querySelectorAll('.field__input');
 
-  contactTrigger && contactTrigger.addEventListener('click', () => successModal && successModal.classList.add('show'));
+  /* CTA "Iniciar proyecto" ahora abre WhatsApp directo (es un <a> con href) — sin modal. */
   closeModalBtn && closeModalBtn.addEventListener('click', () => successModal.classList.remove('show'));
   successModal && successModal.addEventListener('click', (e) => {
     if (e.target === successModal) successModal.classList.remove('show');
