@@ -1148,7 +1148,8 @@ function buildCardTextures() {
   (function loadAvatarPhoto() {
     const AVATAR_X = 168, AVATAR_Y = 138, AVATAR_W = 176, AVATAR_H = 176, AVATAR_R = 28;
     const img = new Image();
-    img.crossOrigin = 'anonymous';
+    // No crossOrigin — same-origin image; setting it breaks loading on servers
+    // sin CORS headers (como DreamHost shared) por modo "anonymous CORS".
     img.onload = () => {
       // Clear & repaint the avatar inner area, then draw the photo clipped to rounded square
       f.save();
