@@ -1012,7 +1012,7 @@ function buildCardTextures() {
   f.font = '500 13px "JetBrains Mono", monospace';
   f.fillText('ACTIVE', 396, 80);
 
-  // avatar tile
+  // avatar tile (gradient border + dark inner)
   const av = f.createLinearGradient(160, 130, 352, 322);
   av.addColorStop(0, '#7C5CFF');
   av.addColorStop(1, '#00E5C5');
@@ -1020,13 +1020,7 @@ function buildCardTextures() {
   roundRect(f, 160, 130, 192, 192, 32, true, false);
   f.fillStyle = '#0a0a10';
   roundRect(f, 168, 138, 176, 176, 28, true, false);
-  // glow inside
-  const ag = f.createRadialGradient(W/2 - 30, 200, 10, W/2, 220, 130);
-  ag.addColorStop(0, 'rgba(124,92,255,0.45)');
-  ag.addColorStop(1, 'rgba(0,0,0,0)');
-  f.fillStyle = ag;
-  roundRect(f, 168, 138, 176, 176, 28, true, false);
-  // initials
+  // ID placeholder text (visible until the photo loads)
   f.fillStyle = '#fff';
   f.font = 'bold 92px "Anton", Impact, sans-serif';
   f.textAlign = 'center';
@@ -1055,7 +1049,7 @@ function buildCardTextures() {
   f.fillText('dusan.codes', 152, 560);
   f.fillStyle = '#B5B5BD';
   f.font = '500 14px "JetBrains Mono", monospace';
-  f.fillText('Monterrey · MX', 152, 584);
+  f.fillText('Chile · Argentina', 152, 584);
   f.fillText('Available 2026', 152, 606);
 
   // dashed line
@@ -1069,7 +1063,7 @@ function buildCardTextures() {
   f.fillStyle = '#6C6C78';
   f.font = '500 13px "JetBrains Mono", monospace';
   f.textAlign = 'left';
-  f.fillText('N° 002 · MX', 36, 690);
+  f.fillText('N° 002 · CL/AR', 36, 690);
   f.textAlign = 'right';
   f.fillText('2026 — ∞', W-36, 690);
 
@@ -1149,6 +1143,56 @@ function buildCardTextures() {
   b.fillText('SIGNATURE', 60, 706);
 
   const texBack = new THREE.CanvasTexture(back);
+
+  // -- Async: load user photo and replace the avatar placeholder
+  (function loadAvatarPhoto() {
+    const AVATAR_X = 168, AVATAR_Y = 138, AVATAR_W = 176, AVATAR_H = 176, AVATAR_R = 28;
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      // Clear & repaint the avatar inner area, then draw the photo clipped to rounded square
+      f.save();
+      // dark base first (in case image has transparency)
+      f.fillStyle = '#0a0a10';
+      roundRect(f, AVATAR_X, AVATAR_Y, AVATAR_W, AVATAR_H, AVATAR_R, true, false);
+      // clip path
+      f.beginPath();
+      const x = AVATAR_X, y = AVATAR_Y, w = AVATAR_W, h = AVATAR_H, r = AVATAR_R;
+      f.moveTo(x + r, y);
+      f.lineTo(x + w - r, y);
+      f.quadraticCurveTo(x + w, y, x + w, y + r);
+      f.lineTo(x + w, y + h - r);
+      f.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      f.lineTo(x + r, y + h);
+      f.quadraticCurveTo(x, y + h, x, y + h - r);
+      f.lineTo(x, y + r);
+      f.quadraticCurveTo(x, y, x + r, y);
+      f.closePath();
+      f.clip();
+      // "cover" fit — scale to fill, crop excess
+      const ar = img.width / img.height;
+      let dw = w, dh = h, dx = x, dy = y;
+      if (ar > 1) {
+        // wider → fit height, crop sides
+        dh = h;
+        dw = h * ar;
+        dx = x - (dw - w) / 2;
+      } else {
+        // taller → fit width, crop top/bottom
+        dw = w;
+        dh = w / ar;
+        dy = y - (dh - h) / 2;
+      }
+      f.drawImage(img, dx, dy, dw, dh);
+      f.restore();
+      texFront.needsUpdate = true;
+    };
+    img.onerror = () => {
+      console.warn('[badge3d] me.jpg no encontrado — usando placeholder "ID"');
+    };
+    // Try jpg first, fall back to png if needed
+    img.src = 'me.jpg?v=' + Date.now();
+  })();
 
   return { texFront, texBack };
 }
