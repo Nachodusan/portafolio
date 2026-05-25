@@ -616,6 +616,31 @@ ul { list-style: none; }
 }
 .nav__cv:hover { transform: translateY(-2px); }
 .nav__cv svg { width: 14px; height: 14px; }
+
+/* Language toggle button (ES / EN) */
+.nav__lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+.nav__lang:hover {
+  background: var(--ink);
+  color: var(--ink-paper);
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
 .nav__burger {
   display: none;
   width: 40px; height: 40px;

@@ -49,17 +49,18 @@
       <span class="nav__brand-name">Dev.Dusan</span>
     </a>
     <nav class="nav__links" id="nav-links">
-      <a href="#about" data-nav>Capabilities</a>
-      <a href="#mobile" data-nav>Mobile</a>
-      <a href="#projects" data-nav>Work</a>
-      <a href="#contact" data-nav>Contact</a>
+      <a href="#about"    data-nav data-i18n="nav.capabilities">Capabilities</a>
+      <a href="#mobile"   data-nav data-i18n="nav.mobile">Mobile</a>
+      <a href="#projects" data-nav data-i18n="nav.work">Work</a>
+      <a href="#contact"  data-nav data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="nav__actions">
+      <button class="nav__lang" id="lang-toggle" data-lang="es" aria-label="Cambiar idioma a inglés">EN</button>
       <a class="nav__cv" href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-        <span>Currículum</span>
+        <span data-i18n="nav.cv">Currículum</span>
         <i data-lucide="arrow-up-right"></i>
       </a>
-      <button class="nav__burger" id="nav-burger" aria-label="Abrir menú">
+      <button class="nav__burger" id="nav-burger" data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menú">
         <span></span><span></span>
       </button>
     </div>
@@ -68,12 +69,12 @@
   <!-- MOBILE MENU OVERLAY -->
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-overlay__inner">
-      <a href="#home" data-nav>Inicio<i data-lucide="arrow-right"></i></a>
-      <a href="#about" data-nav>Capabilities<i data-lucide="arrow-right"></i></a>
-      <a href="#mobile" data-nav>Mobile<i data-lucide="arrow-right"></i></a>
-      <a href="#projects" data-nav>Work<i data-lucide="arrow-right"></i></a>
-      <a href="#contact" data-nav>Contact<i data-lucide="arrow-right"></i></a>
-      <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Currículum<i data-lucide="arrow-up-right"></i></a>
+      <a href="#home"     data-nav><span data-i18n="menu.home">Inicio</span><i data-lucide="arrow-right"></i></a>
+      <a href="#about"    data-nav><span data-i18n="nav.capabilities">Capabilities</span><i data-lucide="arrow-right"></i></a>
+      <a href="#mobile"   data-nav><span data-i18n="nav.mobile">Mobile</span><i data-lucide="arrow-right"></i></a>
+      <a href="#projects" data-nav><span data-i18n="nav.work">Work</span><i data-lucide="arrow-right"></i></a>
+      <a href="#contact"  data-nav><span data-i18n="nav.contact">Contact</span><i data-lucide="arrow-right"></i></a>
+      <a href="/cv.pdf" target="_blank" rel="noopener noreferrer"><span data-i18n="nav.cv">Currículum</span><i data-lucide="arrow-up-right"></i></a>
     </div>
     <div class="menu-overlay__foot">
       <a href="https://github.com/Nachodusan" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -88,11 +89,11 @@
     <section id="home" class="hero">
 
       <!-- 3D PHYSICS BADGE (three.js + rapier) -->
-      <canvas id="badge3d" aria-label="Gafete 3D arrastrable"></canvas>
+      <canvas id="badge3d" data-i18n-attr="aria-label:hero.badge.aria" aria-label="Gafete 3D arrastrable"></canvas>
 
       <div class="hero__meta">
         <span class="dot"></span>
-        <span class="mono">Disponible · Freelance &amp; Colaboraciones · 2026</span>
+        <span class="mono" data-i18n="hero.meta">Disponible · Freelance &amp; Colaboraciones · 2026</span>
       </div>
 
       <h1 class="hero__title">
@@ -103,16 +104,16 @@
 
       <div class="hero__base">
         <div class="hero__bio">
-          <p class="mono hero__bio-lbl">[ 01 — Quién soy ]</p>
-          <p class="hero__bio-text">
+          <p class="mono hero__bio-lbl" data-i18n="hero.bio.lbl">[ 01 — Quién soy ]</p>
+          <p class="hero__bio-text" data-i18n="hero.bio.text">
             Soy desarrollador Full Stack con fortaleza en backend, arquitectura de sistemas y construcción de aplicaciones end-to-end. Diseño soluciones completas cuidando estructura, validación de datos, automatización, escalabilidad y despliegue.
           </p>
-          <p class="mono hero__bio-name">— Ignacio Duque Sandoval</p>
+          <p class="mono hero__bio-name" data-i18n="hero.bio.name">— Ignacio Duque Sandoval</p>
         </div>
 
         <div class="hero__cta-wrap">
           <a href="#contact" class="magnetic-cta" data-cursor="cta">
-            <span>Iniciar<br/>conversación</span>
+            <span><span data-i18n="hero.cta.line1">Iniciar</span><br/><span data-i18n="hero.cta.line2">conversación</span></span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -121,7 +122,7 @@
       </div>
 
       <a href="#about" class="hero__scroll" aria-label="Scroll">
-        <span class="mono">scroll</span>
+        <span class="mono" data-i18n="hero.scroll">scroll</span>
         <span class="hero__scroll-line"><span></span></span>
       </a>
     </section>
@@ -130,12 +131,12 @@
     <section id="about" class="capabilities">
       <header class="section__header">
         <span class="section__num mono">(02)</span>
-        <span class="section__lbl mono">Capabilities</span>
+        <span class="section__lbl mono" data-i18n="cap.label">Capabilities</span>
         <h2 class="section__title">
-          Más allá del código:<br/>
-          <em>Soluciones integrales.</em>
+          <span data-i18n="cap.title.a">Más allá del código:</span><br/>
+          <em data-i18n="cap.title.b">Soluciones integrales.</em>
         </h2>
-        <p class="section__lead">
+        <p class="section__lead" data-i18n="cap.lead">
           No me limito a escribir funciones; diseño ecosistemas. Desde la arquitectura de datos hasta la experiencia final, mi enfoque es construir sistemas robustos, escalables y útiles.
         </p>
       </header>
@@ -144,8 +145,8 @@
         <article class="cap-block reveal">
           <div class="cap-block__num">01</div>
           <div class="cap-block__main">
-            <h3 class="cap-block__title">Frontend<br/>Reactivo.</h3>
-            <p class="cap-block__desc">Interfaces modernas, rápidas y accesibles con Next.js.</p>
+            <h3 class="cap-block__title"><span data-i18n="cap.1.title.a">Frontend</span><br/><span data-i18n="cap.1.title.b">Reactivo.</span></h3>
+            <p class="cap-block__desc" data-i18n="cap.1.desc">Interfaces modernas, rápidas y accesibles con Next.js.</p>
             <ul class="chip-list">
               <li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind</li>
             </ul>
@@ -156,8 +157,8 @@
         <article class="cap-block reveal">
           <div class="cap-block__num">02</div>
           <div class="cap-block__main">
-            <h3 class="cap-block__title">Backend<br/>Robusto.</h3>
-            <p class="cap-block__desc">APIs seguras y bases de datos optimizadas con Supabase/SQL y Node.</p>
+            <h3 class="cap-block__title"><span data-i18n="cap.2.title.a">Backend</span><br/><span data-i18n="cap.2.title.b">Robusto.</span></h3>
+            <p class="cap-block__desc" data-i18n="cap.2.desc">APIs seguras y bases de datos optimizadas con Supabase/SQL y Node.</p>
             <ul class="chip-list">
               <li>Node.js</li><li>PostgreSQL</li><li>MongoDB</li><li>REST APIs</li>
             </ul>
@@ -168,8 +169,8 @@
         <article class="cap-block reveal">
           <div class="cap-block__num">03</div>
           <div class="cap-block__main">
-            <h3 class="cap-block__title">Entrenador<br/>de IA.</h3>
-            <p class="cap-block__desc">Diseño y entreno modelos de IA adaptados a cada caso: desde fine-tuning de LLMs y pipelines RAG hasta inferencia local optimizada. Curado de datasets, evaluación rigurosa y decisión técnica sobre cuándo entrenar, recuperar o combinar.</p>
+            <h3 class="cap-block__title"><span data-i18n="cap.3.title.a">Entrenador</span><br/><span data-i18n="cap.3.title.b">de IA.</span></h3>
+            <p class="cap-block__desc" data-i18n="cap.3.desc">Diseño y entreno modelos de IA adaptados a cada caso: desde fine-tuning de LLMs y pipelines RAG hasta inferencia local optimizada. Curado de datasets, evaluación rigurosa y decisión técnica sobre cuándo entrenar, recuperar o combinar.</p>
             <ul class="chip-list">
               <li>LLMs</li><li>Fine-tuning</li><li>RAG</li><li>Embeddings</li><li>Datasets</li><li>MLX · PyTorch</li><li>Prompt Engineering</li>
             </ul>
@@ -216,12 +217,12 @@
         <div class="mobile__copy">
           <header class="section__header section__header--light">
             <span class="section__num mono">(03)</span>
-            <span class="section__lbl mono">Mobile · Engineering</span>
+            <span class="section__lbl mono" data-i18n="mobile.label">Mobile · Engineering</span>
             <h2 class="section__title">
-              Hecho para<br/>
-              <em>cada pantalla.</em>
+              <span data-i18n="mobile.title.a">Hecho para</span><br/>
+              <em data-i18n="mobile.title.b">cada pantalla.</em>
             </h2>
-            <p class="section__lead">
+            <p class="section__lead" data-i18n-html="mobile.lead.html">
               Experiencias nativas para <strong>iOS &amp; Android</strong> con motores multiplataforma — Flutter para velocidad de iteración, Kotlin para integración nativa profunda.
             </p>
           </header>
@@ -230,29 +231,29 @@
             <li>
               <i data-lucide="bell"></i>
               <div>
-                <h4>Notificaciones Push</h4>
-                <p>Engagement en tiempo real con alertas instantáneas.</p>
+                <h4 data-i18n="mobile.feat1.h">Notificaciones Push</h4>
+                <p data-i18n="mobile.feat1.p">Engagement en tiempo real con alertas instantáneas.</p>
               </div>
             </li>
             <li>
               <i data-lucide="map-pin"></i>
               <div>
-                <h4>Geolocalización</h4>
-                <p>Servicios basados en ubicación y mapas interactivos.</p>
+                <h4 data-i18n="mobile.feat2.h">Geolocalización</h4>
+                <p data-i18n="mobile.feat2.p">Servicios basados en ubicación y mapas interactivos.</p>
               </div>
             </li>
             <li>
               <i data-lucide="wifi-off"></i>
               <div>
-                <h4>Modo Offline</h4>
-                <p>Funcionalidad continua sin conexión a internet.</p>
+                <h4 data-i18n="mobile.feat3.h">Modo Offline</h4>
+                <p data-i18n="mobile.feat3.p">Funcionalidad continua sin conexión a internet.</p>
               </div>
             </li>
             <li>
               <i data-lucide="zap"></i>
               <div>
-                <h4>Alto Rendimiento</h4>
-                <p>Animaciones fluidas a 60fps y optimización nativa.</p>
+                <h4 data-i18n="mobile.feat4.h">Alto Rendimiento</h4>
+                <p data-i18n="mobile.feat4.p">Animaciones fluidas a 60fps y optimización nativa.</p>
               </div>
             </li>
           </ul>
@@ -262,7 +263,7 @@
           <div class="phone-mockup-wrapper">
             <div class="phone-drag-guide">
               <i data-lucide="rotate-3d"></i>
-              <span>Arrastra el dispositivo</span>
+              <span data-i18n="mobile.drag">Arrastra el dispositivo</span>
             </div>
 
             <div class="device-toggle-bar">
@@ -298,15 +299,15 @@
                         <div class="phone-grid-apps">
                           <button class="phone-app-button app-profile" data-app="profile" aria-label="Perfil">
                             <div class="phone-app-icon"><i data-lucide="user"></i></div>
-                            <span class="phone-app-lbl">Perfil</span>
+                            <span class="phone-app-lbl" data-i18n="phone.app.profile">Perfil</span>
                           </button>
                           <button class="phone-app-button app-projects" data-app="projects" aria-label="Proyectos">
                             <div class="phone-app-icon"><i data-lucide="folder"></i></div>
-                            <span class="phone-app-lbl">Proyectos</span>
+                            <span class="phone-app-lbl" data-i18n="phone.app.projects">Proyectos</span>
                           </button>
                           <button class="phone-app-button app-contact" data-app="contact" aria-label="Contacto">
                             <div class="phone-app-icon"><i data-lucide="mail"></i></div>
-                            <span class="phone-app-lbl">Contacto</span>
+                            <span class="phone-app-lbl" data-i18n="phone.app.contact">Contacto</span>
                           </button>
                           <button class="phone-app-button app-github" data-app="github" aria-label="GitHub">
                             <div class="phone-app-icon"><i data-lucide="github"></i></div>
@@ -317,52 +318,52 @@
 
                       <div class="sim-screen" id="screen-profile">
                         <div class="sim-app-header">
-                          <span class="sim-app-title"><i data-lucide="user"></i>Perfil Dusan</span>
+                          <span class="sim-app-title"><i data-lucide="user"></i><span data-i18n="phone.profile.title">Perfil Dusan</span></span>
                           <button class="sim-app-close">✕</button>
                         </div>
                         <div class="sim-scroll-body">
                           <div class="sim-chat-area" id="chat-msg-area">
-                            <div class="sim-chat-bubble dusan">
+                            <div class="sim-chat-bubble dusan" data-i18n="phone.chat.greet">
                               ¡Hola! Soy Ignacio. ¿Qué te gustaría saber sobre mis habilidades de desarrollo?
                             </div>
                           </div>
                           <div class="sim-chat-inputs">
-                            <button class="sim-chat-choice-btn" data-chat-opt="fav">¿Cuál es tu stack preferido?</button>
-                            <button class="sim-chat-choice-btn" data-chat-opt="projs">¿Qué proyectos buscas?</button>
-                            <button class="sim-chat-choice-btn" data-chat-opt="avail">¿Estás disponible?</button>
+                            <button class="sim-chat-choice-btn" data-chat-opt="fav" data-i18n="phone.chat.opt1">¿Cuál es tu stack preferido?</button>
+                            <button class="sim-chat-choice-btn" data-chat-opt="projs" data-i18n="phone.chat.opt2">¿Qué proyectos buscas?</button>
+                            <button class="sim-chat-choice-btn" data-chat-opt="avail" data-i18n="phone.chat.opt3">¿Estás disponible?</button>
                           </div>
                         </div>
                       </div>
 
                       <div class="sim-screen" id="screen-projects">
                         <div class="sim-app-header">
-                          <span class="sim-app-title"><i data-lucide="folder"></i>Proyectos</span>
+                          <span class="sim-app-title"><i data-lucide="folder"></i><span data-i18n="phone.projects.title">Proyectos</span></span>
                           <button class="sim-app-close">✕</button>
                         </div>
                         <div class="sim-scroll-body">
                           <div class="sim-proj-card">
-                            <h5>🛒 E-Commerce SaaS</h5>
-                            <p>Gestión de inventario y Stripe.</p>
+                            <h5 data-i18n="phone.proj.1.h">🛒 E-Commerce SaaS</h5>
+                            <p data-i18n="phone.proj.1.p">Gestión de inventario y Stripe.</p>
                           </div>
                           <div class="sim-proj-card">
-                            <h5>📋 Registro Masivo</h5>
-                            <p>Offline-first local DB sync.</p>
+                            <h5 data-i18n="phone.proj.2.h">📋 Registro Masivo</h5>
+                            <p data-i18n="phone.proj.2.p">Offline-first local DB sync.</p>
                           </div>
                           <div class="sim-proj-card">
-                            <h5>📡 Monitoreo IoT</h5>
-                            <p>Gráficos y MQTT backend.</p>
+                            <h5 data-i18n="phone.proj.3.h">📡 Monitoreo IoT</h5>
+                            <p data-i18n="phone.proj.3.p">Gráficos y MQTT backend.</p>
                           </div>
                         </div>
                       </div>
 
                       <div class="sim-screen" id="screen-github">
                         <div class="sim-app-header">
-                          <span class="sim-app-title"><i data-lucide="git-branch"></i>Commits</span>
+                          <span class="sim-app-title"><i data-lucide="git-branch"></i><span data-i18n="phone.commits.title">Commits</span></span>
                           <button class="sim-app-close">✕</button>
                         </div>
                         <div class="sim-scroll-body">
                           <div class="sim-github-chart">
-                            <div class="sim-chart-lbl">Contribuciones</div>
+                            <div class="sim-chart-lbl" data-i18n="phone.chart.lbl">Contribuciones</div>
                             <div class="sim-chart-grid" id="github-chart-cells"></div>
                           </div>
                           <div id="commit-feed-area" style="margin-top:0.8rem"></div>
@@ -371,23 +372,23 @@
 
                       <div class="sim-screen" id="screen-contact">
                         <div class="sim-app-header">
-                          <span class="sim-app-title"><i data-lucide="send"></i>Contacto</span>
+                          <span class="sim-app-title"><i data-lucide="send"></i><span data-i18n="phone.contact.title">Contacto</span></span>
                           <button class="sim-app-close">✕</button>
                         </div>
                         <div class="sim-scroll-body">
                           <div class="sim-form-group">
-                            <label for="sim-name">Nombre</label>
-                            <input type="text" id="sim-name" placeholder="Tu nombre" />
+                            <label for="sim-name" data-i18n="phone.form.name">Nombre</label>
+                            <input type="text" id="sim-name" data-i18n-attr="placeholder:phone.form.name.ph" placeholder="Tu nombre" />
                           </div>
                           <div class="sim-form-group">
-                            <label for="sim-email">Email</label>
-                            <input type="email" id="sim-email" placeholder="correo@ejemplo.com" />
+                            <label for="sim-email" data-i18n="phone.form.email">Email</label>
+                            <input type="email" id="sim-email" data-i18n-attr="placeholder:phone.form.email.ph" placeholder="correo@ejemplo.com" />
                           </div>
                           <div class="sim-form-group">
-                            <label for="sim-msg">Mensaje</label>
-                            <textarea id="sim-msg" rows="3" placeholder="Mensaje..."></textarea>
+                            <label for="sim-msg" data-i18n="phone.form.msg">Mensaje</label>
+                            <textarea id="sim-msg" rows="3" data-i18n-attr="placeholder:phone.form.msg.ph" placeholder="Mensaje..."></textarea>
                           </div>
-                          <button class="sim-app-btn" id="sim-contact-submit">Componer Email</button>
+                          <button class="sim-app-btn" id="sim-contact-submit" data-i18n="phone.form.btn">Componer Email</button>
                         </div>
                       </div>
                     </div>
@@ -406,17 +407,17 @@
     <section id="projects" class="work">
       <header class="section__header">
         <span class="section__num mono">(04)</span>
-        <span class="section__lbl mono">Selected Work · 2024–2026</span>
+        <span class="section__lbl mono" data-i18n="work.label">Selected Work · 2024–2026</span>
         <h2 class="section__title">
-          Trabajo<br/>
-          <em>seleccionado.</em>
+          <span data-i18n="work.title.a">Trabajo</span><br/>
+          <em data-i18n="work.title.b">seleccionado.</em>
         </h2>
-        <p class="section__lead">
-          Tres proyectos que reflejan experiencia en e-commerce, datos a escala y sistemas IoT.
+        <p class="section__lead" data-i18n="work.lead">
+          Cuatro proyectos que reflejan experiencia en e-commerce, datos a escala, IoT e IA.
         </p>
         <a class="section__link" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
           <i data-lucide="github"></i>
-          <span>Ver más en GitHub</span>
+          <span data-i18n="work.morebtn">Ver más en GitHub</span>
           <i data-lucide="arrow-up-right"></i>
         </a>
       </header>
@@ -425,20 +426,20 @@
         <article class="case reveal">
           <div class="case__head">
             <span class="case__num mono">(01)</span>
-            <span class="case__tag mono">Proyecto Web</span>
+            <span class="case__tag mono" data-i18n="work.p1.tag">Proyecto Web</span>
           </div>
-          <h3 class="case__title">Plataforma de Comercio Electrónico</h3>
+          <h3 class="case__title" data-i18n="work.p1.title">Plataforma de Comercio Electrónico</h3>
           <ul class="case__points">
-            <li>Implementación de sistema de gestión de productos e inventario.</li>
-            <li>Integración de APIs para manejo dinámico de datos.</li>
-            <li>Panel administrativo para gestión de ventas y productos.</li>
-            <li>Interfaz responsiva optimizada para dispositivos móviles.</li>
+            <li data-i18n="work.p1.b1">Implementación de sistema de gestión de productos e inventario.</li>
+            <li data-i18n="work.p1.b2">Integración de APIs para manejo dinámico de datos.</li>
+            <li data-i18n="work.p1.b3">Panel administrativo para gestión de ventas y productos.</li>
+            <li data-i18n="work.p1.b4">Interfaz responsiva optimizada para dispositivos móviles.</li>
           </ul>
           <ul class="chip-list">
             <li>React</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>REST APIs</li><li>PostgreSQL (SQL)</li>
           </ul>
           <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/inthebox">
-            <span>Ver en GitHub</span>
+            <span data-i18n="work.cta">Ver en GitHub</span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </article>
@@ -446,20 +447,20 @@
         <article class="case reveal">
           <div class="case__head">
             <span class="case__num mono">(02)</span>
-            <span class="case__tag mono">Plataforma Web &amp; Mobile</span>
+            <span class="case__tag mono" data-i18n="work.p2.tag">Plataforma Web &amp; Mobile</span>
           </div>
-          <h3 class="case__title">Sistema de Registro Masivo de Datos</h3>
+          <h3 class="case__title" data-i18n="work.p2.title">Sistema de Registro Masivo de Datos</h3>
           <ul class="case__points">
-            <li>Arquitectura de base de datos escalable para manejo de grandes volúmenes de datos.</li>
-            <li>Plataforma web para visualización y gestión de registros en tiempo real.</li>
-            <li>Aplicaciones móviles multiplataforma con Kotlin y Flutter.</li>
-            <li>Optimización del flujo de captura y organización de datos.</li>
+            <li data-i18n="work.p2.b1">Arquitectura de base de datos escalable para manejo de grandes volúmenes de datos.</li>
+            <li data-i18n="work.p2.b2">Plataforma web para visualización y gestión de registros en tiempo real.</li>
+            <li data-i18n="work.p2.b3">Aplicaciones móviles multiplataforma con Kotlin y Flutter.</li>
+            <li data-i18n="work.p2.b4">Optimización del flujo de captura y organización de datos.</li>
           </ul>
           <ul class="chip-list">
             <li>React</li><li>JavaScript</li><li>PostgreSQL (SQL)</li><li>MongoDB (NoSQL)</li><li>REST APIs</li><li>Kotlin</li><li>Flutter</li>
           </ul>
           <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
-            <span>Ver en GitHub</span>
+            <span data-i18n="work.cta">Ver en GitHub</span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </article>
@@ -467,20 +468,20 @@
         <article class="case reveal">
           <div class="case__head">
             <span class="case__num mono">(03)</span>
-            <span class="case__tag mono">Sistema IoT</span>
+            <span class="case__tag mono" data-i18n="work.p3.tag">Sistema IoT</span>
           </div>
-          <h3 class="case__title">Plataforma IoT para Monitoreo de Sensores</h3>
+          <h3 class="case__title" data-i18n="work.p3.title">Plataforma IoT para Monitoreo de Sensores</h3>
           <ul class="case__points">
-            <li>Integración de sensores y microcontroladores con APIs.</li>
-            <li>Almacenamiento de datos de sensores en PostgreSQL.</li>
-            <li>Dashboard web para visualización de métricas en tiempo real.</li>
-            <li>Aplicación móvil para control remoto de dispositivos.</li>
+            <li data-i18n="work.p3.b1">Integración de sensores y microcontroladores con APIs.</li>
+            <li data-i18n="work.p3.b2">Almacenamiento de datos de sensores en PostgreSQL.</li>
+            <li data-i18n="work.p3.b3">Dashboard web para visualización de métricas en tiempo real.</li>
+            <li data-i18n="work.p3.b4">Aplicación móvil para control remoto de dispositivos.</li>
           </ul>
           <ul class="chip-list">
             <li>Arduino (C/C++)</li><li>React</li><li>JavaScript</li><li>REST APIs</li><li>PostgreSQL (SQL)</li><li>Flutter</li><li>Kotlin</li>
           </ul>
           <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
-            <span>Ver en GitHub</span>
+            <span data-i18n="work.cta">Ver en GitHub</span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </article>
@@ -488,20 +489,20 @@
         <article class="case reveal">
           <div class="case__head">
             <span class="case__num mono">(04)</span>
-            <span class="case__tag mono">IA Conversacional</span>
+            <span class="case__tag mono" data-i18n="work.p4.tag">IA Conversacional</span>
           </div>
-          <h3 class="case__title">Che IA — Asistente de voz rioplatense con persona porteña</h3>
+          <h3 class="case__title" data-i18n="work.p4.title">Che IA — Asistente de voz rioplatense con persona porteña</h3>
           <ul class="case__points">
-            <li>Sistema conversacional que combina Llama 3.1 8B + RAG sobre 319 ejemplos curados.</li>
-            <li>TTS local con voz argentina + post-procesador léxico de 150+ reglas.</li>
-            <li>Pipeline corriendo end-to-end en Apple Silicon, sin dependencias cloud.</li>
-            <li>Decisión arquitectónica documentada: prompt engineering + retrieval supera al fine-tuning LoRA en datasets chicos de tareas estilísticas (descartadas 3 iteraciones).</li>
+            <li data-i18n="work.p4.b1">Sistema conversacional que combina Llama 3.1 8B + RAG sobre 319 ejemplos curados.</li>
+            <li data-i18n="work.p4.b2">TTS local con voz argentina + post-procesador léxico de 150+ reglas.</li>
+            <li data-i18n="work.p4.b3">Pipeline corriendo end-to-end en Apple Silicon, sin dependencias cloud.</li>
+            <li data-i18n="work.p4.b4">Decisión arquitectónica documentada: prompt engineering + retrieval supera al fine-tuning LoRA en datasets chicos de tareas estilísticas (descartadas 3 iteraciones).</li>
           </ul>
           <ul class="chip-list">
             <li>Llama 3.1 8B (MLX)</li><li>BM25 Retrieval</li><li>Piper TTS</li><li>React + Vite</li><li>FastAPI</li><li>Web Speech API</li>
           </ul>
           <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/ia-rioplatense">
-            <span>Ver en GitHub</span>
+            <span data-i18n="work.cta">Ver en GitHub</span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </article>
@@ -511,7 +512,7 @@
     <!-- CONTACT -->
     <section id="contact" class="contact">
       <span class="section__num mono">(05)</span>
-      <span class="section__lbl mono">Let's build</span>
+      <span class="section__lbl mono" data-i18n="contact.label">Let's build</span>
 
       <h2 class="contact__title">
         <span>LET'S</span>
@@ -519,7 +520,7 @@
         <span><em>SOMETHING.</em></span>
       </h2>
 
-      <p class="contact__lead">
+      <p class="contact__lead" data-i18n="contact.lead">
         ¿Tienes un proyecto en mente o simplemente quieres conectar?
         Mi bandeja de entrada siempre está abierta para nuevas oportunidades.
       </p>
@@ -527,8 +528,10 @@
       <div class="contact__cta-wrap">
         <a class="magnetic-cta magnetic-cta--lg" id="main-contact-trigger" data-cursor="cta"
            href="https://wa.me/5491168037887?text=Hola%20Ignacio%2C%20me%20gustar%C3%ADa%20iniciar%20un%20proyecto%20contigo."
-           target="_blank" rel="noopener noreferrer" aria-label="Iniciar proyecto por WhatsApp">
-          <span>Iniciar<br/>proyecto</span>
+           target="_blank" rel="noopener noreferrer"
+           data-i18n-attr="aria-label:contact.cta.aria"
+           aria-label="Iniciar proyecto por WhatsApp">
+          <span><span data-i18n="contact.cta.line1">Iniciar</span><br/><span data-i18n="contact.cta.line2">proyecto</span></span>
           <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -548,14 +551,14 @@
   <!-- FOOTER -->
   <footer class="foot">
     <div class="foot__row">
-      <span class="mono">© 2026 — Ignacio Duque Sandoval</span>
-      <span class="mono">Built in Chile · Argentina · dusan.codes</span>
-      <a class="mono" href="#home">Volver arriba ↑</a>
+      <span class="mono" data-i18n="foot.copy">© 2026 — Ignacio Duque Sandoval</span>
+      <span class="mono" data-i18n="foot.built">Built in Chile · Argentina · dusan.codes</span>
+      <a class="mono" href="#home" data-i18n="foot.top">Volver arriba ↑</a>
     </div>
   </footer>
 
   <!-- WHATSAPP BUTTON -->
-  <a href="https://wa.me/5491168037887?text=Hola%2C%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer" class="wa-fab" aria-label="WhatsApp">
+  <a href="https://wa.me/5491168037887?text=Hola%2C%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener noreferrer" class="wa-fab" data-i18n-attr="aria-label:wa.aria" aria-label="WhatsApp">
     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewbox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
       <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
     </svg>
@@ -565,28 +568,28 @@
   <div class="modal" id="success-modal">
     <div class="modal__panel">
       <header class="modal__head">
-        <span class="modal__title"><i data-lucide="mail"></i>Enviar mensaje</span>
-        <button class="modal__close" id="close-modal-btn" aria-label="Cerrar">✕</button>
+        <span class="modal__title"><i data-lucide="mail"></i><span data-i18n="modal.title">Enviar mensaje</span></span>
+        <button class="modal__close" id="close-modal-btn" data-i18n-attr="aria-label:modal.close.aria" aria-label="Cerrar">✕</button>
       </header>
 
       <form class="modal__form" id="portfolio-contact-form">
         <div class="field">
           <input type="text" id="user-name" class="field__input" placeholder=" " required />
-          <label for="user-name" class="field__label">Tu nombre</label>
+          <label for="user-name" class="field__label" data-i18n="modal.name">Tu nombre</label>
         </div>
         <div class="field">
           <input type="email" id="user-email" class="field__input" placeholder=" " required />
-          <label for="user-email" class="field__label">Tu email</label>
+          <label for="user-email" class="field__label" data-i18n="modal.email">Tu email</label>
         </div>
         <div class="field">
           <textarea id="user-message" class="field__input" rows="4" placeholder=" " required></textarea>
-          <label for="user-message" class="field__label">Cuéntame sobre tu proyecto…</label>
+          <label for="user-message" class="field__label" data-i18n="modal.msg">Cuéntame sobre tu proyecto…</label>
         </div>
 
         <div class="modal__actions">
-          <button type="button" class="btn btn--ghost" id="direct-email-btn">Email Directo</button>
+          <button type="button" class="btn btn--ghost" id="direct-email-btn" data-i18n="modal.direct">Email Directo</button>
           <button type="submit" class="btn btn--solid">
-            <span>Enviar</span>
+            <span data-i18n="modal.send">Enviar</span>
             <i data-lucide="send"></i>
           </button>
         </div>
@@ -596,6 +599,7 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
+  <script src="i18n.js?v=20260525c"></script>
   <script src="script.js?v=20260525c"></script>
   <script type="module" src="badge3d.js?v=20260525c"></script>
 </body>
