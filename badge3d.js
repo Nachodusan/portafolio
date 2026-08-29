@@ -1036,8 +1036,11 @@ function buildCardTextures() {
   // role lines
   f.fillStyle = '#B5B5BD';
   f.font = '500 16px "JetBrains Mono", monospace';
-  f.fillText('FULL-STACK DEVELOPER', W/2, 428);
-  f.fillText('SYSTEM ARCHITECT', W/2, 452);
+  f.fillText('AI TRAINER · FULL-STACK', W/2, 424);
+  f.fillText('+ MOBILE DEVELOPER', W/2, 446);
+  f.font = '500 13px "JetBrains Mono", monospace';
+  f.fillText('LLM EVAL (LLAMA, RAG, MLX)', W/2, 474);
+  f.fillText('REACT · PYTHON · KOTLIN · FLUTTER', W/2, 494);
 
   // mini QR
   drawQR(f, 36, 540, 96);
@@ -1050,7 +1053,7 @@ function buildCardTextures() {
   f.fillStyle = '#B5B5BD';
   f.font = '500 14px "JetBrains Mono", monospace';
   f.fillText('Chile · Argentina', 152, 584);
-  f.fillText('Available 2026', 152, 606);
+  f.fillText('ES-AR/CL native · Open to Work', 152, 606);
 
   // dashed line
   f.strokeStyle = 'rgba(255,255,255,0.18)';
