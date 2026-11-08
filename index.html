@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Anton&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=20260829a" />
+  <link rel="stylesheet" href="style.css?v=20261107b" />
 
   <script type="importmap">
   {
@@ -345,16 +345,20 @@
                         </div>
                         <div class="sim-scroll-body">
                           <div class="sim-proj-card">
+                            <h5 data-i18n="phone.proj.4.h">🎙️ Bitácora</h5>
+                            <p data-i18n="phone.proj.4.p">Diario hablado iOS/Android con memoria vectorial.</p>
+                          </div>
+                          <div class="sim-proj-card">
+                            <h5 data-i18n="phone.proj.5.h">📚 Tutor IA</h5>
+                            <p data-i18n="phone.proj.5.p">RAG con citas y abstención sobre material oficial.</p>
+                          </div>
+                          <div class="sim-proj-card">
                             <h5 data-i18n="phone.proj.1.h">🛒 E-Commerce SaaS</h5>
                             <p data-i18n="phone.proj.1.p">Gestión de inventario y Stripe.</p>
                           </div>
                           <div class="sim-proj-card">
-                            <h5 data-i18n="phone.proj.2.h">📋 Registro Masivo</h5>
-                            <p data-i18n="phone.proj.2.p">Offline-first local DB sync.</p>
-                          </div>
-                          <div class="sim-proj-card">
-                            <h5 data-i18n="phone.proj.3.h">📡 Monitoreo IoT</h5>
-                            <p data-i18n="phone.proj.3.p">Gráficos y MQTT backend.</p>
+                            <h5 data-i18n="phone.proj.6.h">🧉 Che IA</h5>
+                            <p data-i18n="phone.proj.6.p">Asistente de voz rioplatense con RAG local.</p>
                           </div>
                         </div>
                       </div>
@@ -416,7 +420,7 @@
           <em data-i18n="work.title.b">seleccionado.</em>
         </h2>
         <p class="section__lead" data-i18n="work.lead">
-          Cuatro proyectos que reflejan experiencia en e-commerce, datos a escala, IoT e IA.
+          Cuatro proyectos que reflejan experiencia en IA aplicada y RAG, mobile nativo y desarrollo web full stack.
         </p>
         <a class="section__link" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
           <i data-lucide="github"></i>
@@ -429,6 +433,48 @@
         <article class="case reveal">
           <div class="case__head">
             <span class="case__num mono">(01)</span>
+            <span class="case__tag mono" data-i18n="work.p5.tag">App Móvil &amp; IA</span>
+          </div>
+          <h3 class="case__title" data-i18n="work.p5.title">Bitácora — Diario hablado para acompañar la terapia</h3>
+          <ul class="case__points">
+            <li data-i18n="work.p5.b1">Apps nativas en SwiftUI y Jetpack Compose con transcripción de voz on-device: el audio no sale del teléfono.</li>
+            <li data-i18n="work.p5.b2">Memoria larga con pgvector: los resúmenes de cada día se vectorizan, se recuperan y se reordenan en cada turno.</li>
+            <li data-i18n="work.p5.b3">Servidor Node 22 + Fastify sobre PostgreSQL sin ORM, con respuestas en streaming de texto y voz.</li>
+            <li data-i18n="work.p5.b4">Guardas de producto: corte de riesgo duplicado en cliente y servidor, y techo de gasto mensual antes de llamar al proveedor.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>SwiftUI</li><li>Kotlin · Compose</li><li>Node 22 + Fastify</li><li>TypeScript</li><li>PostgreSQL + pgvector</li><li>RAG · Embeddings</li><li>TTS</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/bitacora-app">
+            <span data-i18n="work.cta">Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(02)</span>
+            <span class="case__tag mono" data-i18n="work.p6.tag">RAG &amp; Evaluación de LLM</span>
+          </div>
+          <h3 class="case__title" data-i18n="work.p6.title">Tutor IA — Facilitador de aprendizaje sobre material oficial del Mineduc</h3>
+          <ul class="case__points">
+            <li data-i18n="work.p6.b1">RAG de doble corpus tipado: el texto del estudiante como fuente citable y la guía docente como pedagogía anclada al objetivo de aprendizaje.</li>
+            <li data-i18n="work.p6.b2">Retrieval híbrido (denso + léxico + RRF) con reranker como gate de abstención: si no está en el material, el tutor se abstiene.</li>
+            <li data-i18n="work.p6.b3">Verificación NLI direccional por oración y detección de premisa falsa contra alucinaciones, corriendo en el chat real.</li>
+            <li data-i18n="work.p6.b4">Harness de evaluación propio con golden set anclado a chunks reales; un experimento de de-risking midió el techo del modelo y sacó matemática del scope.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>TypeScript</li><li>Next.js</li><li>Turborepo</li><li>PostgreSQL + pgvector</li><li>Retrieval híbrido + RRF</li><li>bge-m3 · Reranker</li><li>NLI (mDeBERTa)</li><li>Python</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/tutor-ia">
+            <span data-i18n="work.cta">Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(03)</span>
             <span class="case__tag mono" data-i18n="work.p1.tag">Proyecto Web</span>
           </div>
           <h3 class="case__title" data-i18n="work.p1.title">Plataforma de Comercio Electrónico</h3>
@@ -442,48 +488,6 @@
             <li>React</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>REST APIs</li><li>PostgreSQL (SQL)</li>
           </ul>
           <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/inthebox">
-            <span data-i18n="work.cta">Ver en GitHub</span>
-            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </article>
-
-        <article class="case reveal">
-          <div class="case__head">
-            <span class="case__num mono">(02)</span>
-            <span class="case__tag mono" data-i18n="work.p2.tag">Plataforma Web &amp; Mobile</span>
-          </div>
-          <h3 class="case__title" data-i18n="work.p2.title">Sistema de Registro Masivo de Datos</h3>
-          <ul class="case__points">
-            <li data-i18n="work.p2.b1">Arquitectura de base de datos escalable para manejo de grandes volúmenes de datos.</li>
-            <li data-i18n="work.p2.b2">Plataforma web para visualización y gestión de registros en tiempo real.</li>
-            <li data-i18n="work.p2.b3">Aplicaciones móviles multiplataforma con Kotlin y Flutter.</li>
-            <li data-i18n="work.p2.b4">Optimización del flujo de captura y organización de datos.</li>
-          </ul>
-          <ul class="chip-list">
-            <li>React</li><li>JavaScript</li><li>PostgreSQL (SQL)</li><li>MongoDB (NoSQL)</li><li>REST APIs</li><li>Kotlin</li><li>Flutter</li>
-          </ul>
-          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
-            <span data-i18n="work.cta">Ver en GitHub</span>
-            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </article>
-
-        <article class="case reveal">
-          <div class="case__head">
-            <span class="case__num mono">(03)</span>
-            <span class="case__tag mono" data-i18n="work.p3.tag">Sistema IoT</span>
-          </div>
-          <h3 class="case__title" data-i18n="work.p3.title">Plataforma IoT para Monitoreo de Sensores</h3>
-          <ul class="case__points">
-            <li data-i18n="work.p3.b1">Integración de sensores y microcontroladores con APIs.</li>
-            <li data-i18n="work.p3.b2">Almacenamiento de datos de sensores en PostgreSQL.</li>
-            <li data-i18n="work.p3.b3">Dashboard web para visualización de métricas en tiempo real.</li>
-            <li data-i18n="work.p3.b4">Aplicación móvil para control remoto de dispositivos.</li>
-          </ul>
-          <ul class="chip-list">
-            <li>Arduino (C/C++)</li><li>React</li><li>JavaScript</li><li>REST APIs</li><li>PostgreSQL (SQL)</li><li>Flutter</li><li>Kotlin</li>
-          </ul>
-          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
             <span data-i18n="work.cta">Ver en GitHub</span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -602,8 +606,8 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
-  <script src="i18n.js?v=20260829a"></script>
-  <script src="script.js?v=20260829a"></script>
-  <script type="module" src="badge3d.js?v=20260829a"></script>
+  <script src="i18n.js?v=20261107b"></script>
+  <script src="script.js?v=20261107b"></script>
+  <script type="module" src="badge3d.js?v=20261107b"></script>
 </body>
 </html>
