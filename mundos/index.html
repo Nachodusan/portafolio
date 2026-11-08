@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tres mundos — Dusan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#08080C;color:#EFEFEA;
+  font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+  padding-block:clamp(36px,7vw,80px)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto}
+.mono{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8B93}
+h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2.1rem,6.5vw,4rem);line-height:.92;
+  letter-spacing:-.04em;text-transform:uppercase;margin:16px 0 0}
+.lead{margin:18px 0 0;max-width:62ch;color:#A8A8B0;line-height:1.6;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:44px}
+.card{display:block;border:1px solid #22222A;border-radius:4px;padding:22px;position:relative;
+  overflow:hidden;transition:border-color .2s,transform .2s;min-height:230px}
+.card:hover{border-color:#55555F;transform:translateY(-3px)}
+.card .n{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:#6E6E78}
+.card h2{font-family:'Archivo Black',sans-serif;font-size:1.5rem;text-transform:uppercase;
+  letter-spacing:-.03em;line-height:1;margin:12px 0 0}
+.card p{margin:11px 0 0;font-size:13px;line-height:1.55;color:#9A9AA4}
+.card .go{position:absolute;left:22px;bottom:20px;font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.card .swatch{position:absolute;right:0;top:0;width:76px;height:76px}
+.c-a .swatch{background:linear-gradient(135deg,#FF6BB5,#6BE3FF)}
+.c-b .swatch{background:linear-gradient(135deg,#6BF0DC,#2A2118)}
+.c-c .swatch{background:linear-gradient(135deg,#2F18FF,#07070A)}
+.c-a .go{color:#FF6BB5}.c-b .go{color:#6BF0DC}.c-c .go{color:#8E7BFF}
+.note{margin-top:40px;padding-top:20px;border-top:1px solid #22222A;font-size:12.5px;
+  line-height:1.6;color:#80808A;max-width:70ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="mono">Ignacio Duque Sandoval · Prueba de dirección · 2026</p>
+  <h1>Tres mundos</h1>
+  <p class="lead">Tres portafolios navegables, con el mismo contenido real. Cada uno responde a una de las referencias que pasaste. Entrá, probalos, y quedate con uno.</p>
+
+  <div class="grid">
+    <a class="card c-a" href="a/">
+      <div class="swatch"></div>
+      <p class="n">01</p>
+      <h2>El patio</h2>
+      <p>Siete bloques con física que podés agarrar y tirar. Rebotan, chocan entre sí y se abren al caer en el anillo. La idea de Bruno Simon.</p>
+      <span class="go">Entrar ↗</span>
+    </a>
+
+    <a class="card c-b" href="b/">
+      <div class="swatch"></div>
+      <p class="n">02</p>
+      <h2>El escritorio</h2>
+      <p>Un escritorio iluminado en el vacío que orbitás. El teléfono muestra tus capturas de Bitácora, el parlante reproduce tus voces y la caja gira con tu 360. La idea de Jesse Zhou.</p>
+      <span class="go">Entrar ↗</span>
+    </a>
+
+    <a class="card c-c" href="c/">
+      <div class="swatch"></div>
+      <p class="n">03</p>
+      <h2>Tipografía</h2>
+      <p>Color eléctrico a pantalla completa y tipografía negra extruida que gira con el mouse. Los nombres de tus proyectos son la animación. La idea de Van Holtz.</p>
+      <span class="go">Entrar ↗</span>
+    </a>
+  </div>
+
+  <p class="note">Los tres usan material tuyo de verdad: las 4 capturas de <strong style="color:#C9C9D2">bitacora-app</strong>, 6 cuadros del visor 360 de <strong style="color:#C9C9D2">inthebox</strong>, 2 voces de <strong style="color:#C9C9D2">tutor-ia</strong> y tu foto. Nada de esto toca tu sitio publicado: vive en la rama <code style="font-family:'JetBrains Mono',monospace">mundos</code>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dusan — Tipografía</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --flood:#2F18FF;
+  --ink:#07070A;
+  --paper:#F2F1EC;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;overflow:hidden;background:var(--flood);color:var(--ink);
+  font-family:Archivo,system-ui,sans-serif;
+  transition:background .7s cubic-bezier(.2,.9,.1,1);
+  -webkit-font-smoothing:antialiased;cursor:default;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+
+/* ---- puerta ---- */
+#gate{position:fixed;inset:0;z-index:50;background:var(--ink);color:var(--paper);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+  transition:opacity .6s ease, visibility .6s}
+#gate.off{opacity:0;visibility:hidden}
+#gate h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,7vw,4.4rem);
+  letter-spacing:-.04em;line-height:.9;text-transform:uppercase;text-align:center;margin:0}
+#gate p{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;opacity:.55;margin:0;text-align:center;padding:0 20px}
+#enter{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  border:1px solid var(--paper);padding:14px 30px;min-height:48px;
+  transition:background .2s,color .2s}
+#enter:hover{background:var(--paper);color:var(--ink)}
+
+/* ---- escena ---- */
+#stage{position:fixed;inset:0;perspective:1000px;perspective-origin:50% 48%;overflow:hidden}
+#deck{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.word{
+  position:absolute;top:50%;left:50%;width:max-content;max-width:94vw;
+  font-family:'Archivo Black',sans-serif;text-transform:uppercase;
+  font-size:clamp(1.9rem,8.6vw,7.4rem);line-height:.82;letter-spacing:-.05em;
+  margin:0;white-space:nowrap;transform-style:preserve-3d;cursor:pointer;
+  transition:opacity .45s ease, transform .55s cubic-bezier(.2,.9,.1,1);
+}
+.word.past{opacity:.13}
+.word.next{opacity:.22}
+.word.now{opacity:1}
+
+/* ---- HUD ---- */
+.hud{position:fixed;z-index:20;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;line-height:1.8}
+.hud--tl{top:max(18px,env(safe-area-inset-top,0px));left:max(18px,env(safe-area-inset-left,0px))}
+.hud--bl{bottom:max(18px,env(safe-area-inset-bottom,0px));left:max(18px,env(safe-area-inset-left,0px))}
+.hud--br{bottom:max(18px,env(safe-area-inset-bottom,0px));right:max(18px,env(safe-area-inset-right,0px));text-align:right}
+.hud--tr{top:max(18px,env(safe-area-inset-top,0px));right:max(18px,env(safe-area-inset-right,0px));text-align:right}
+.hud b{font-weight:500}
+.hud .dim{opacity:.5}
+.hud a{border-bottom:1px solid transparent}
+.hud a:hover{border-bottom-color:currentColor}
+.idx{display:flex;gap:14px;flex-wrap:wrap}
+.idx button{font:inherit;letter-spacing:.14em;opacity:.45;transition:opacity .2s}
+.idx button[aria-current="true"]{opacity:1;font-weight:500}
+.idx button:hover{opacity:.85}
+
+/* ---- panel del proyecto ---- */
+#panel{position:fixed;z-index:30;left:50%;bottom:max(70px,env(safe-area-inset-bottom,0px));
+  transform:translateX(-50%);width:min(620px,calc(100% - 40px));
+  background:var(--ink);color:var(--paper);padding:20px 22px;
+  opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s,transform .35s}
+#panel.on{opacity:1;visibility:visible;transform:translateX(-50%) translateY(-6px)}
+#panel h2{font-family:'Archivo Black',sans-serif;font-size:17px;text-transform:uppercase;
+  letter-spacing:-.02em;margin:0 0 10px}
+#panel p{margin:0 0 9px;font-size:13px;line-height:1.55;opacity:.82}
+#panel .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;list-style:none;padding:0}
+#panel .chips li{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.06em;
+  border:1px solid rgba(242,241,236,.3);padding:3px 7px}
+#panel .go{display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid currentColor}
+#panel .x{position:absolute;top:12px;right:14px;font-family:'JetBrains Mono',monospace;font-size:13px;opacity:.6}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <p>Ignacio Duque Sandoval · dusan.codes</p>
+  <h1>AI Trainer<br>Full-Stack + Mobile</h1>
+  <button id="enter" type="button">Entrar</button>
+</div>
+
+<div id="stage"><div id="deck"></div></div>
+
+<div class="hud hud--tl"><b>Dusan</b><br><span class="dim">Ignacio Duque Sandoval</span></div>
+<div class="hud hud--tr">
+  <div class="idx" id="idx"></div>
+  <div style="margin-top:10px"><button id="hue" type="button" class="dim">◼ color</button></div>
+</div>
+<div class="hud hud--bl">
+  <span class="dim">Disponible · 2026</span><br>
+  LLM eval · RAG · MLX<br>
+  React · Python · Kotlin · Flutter
+</div>
+<div class="hud hud--br">
+  <a href="https://github.com/Nachodusan" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+  <a href="https://www.linkedin.com/in/ignacio-d-361698102/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+  <a href="../../cv.pdf" target="_blank" rel="noopener noreferrer">CV</a><br>
+  <span class="dim">dusanemp@gmail.com</span><br>
+  <a href="../">← los tres mundos</a>
+</div>
+
+<div id="panel">
+  <button class="x" id="panelx" type="button" aria-label="Cerrar">✕</button>
+  <h2 id="p-t"></h2>
+  <p id="p-d"></p>
+  <ul class="chips" id="p-c"></ul>
+  <a class="go" id="p-g" target="_blank" rel="noopener noreferrer"></a>
+</div>
+
+<script>
+const ITEMS = [
+  { w:"Bitácora", t:"Bitácora", d:"Diario hablado para acompañar la terapia. Apps nativas en SwiftUI y Jetpack Compose con transcripción de voz en el dispositivo: el audio no sale del teléfono. Memoria larga con pgvector y guardas duplicadas en cliente y servidor.",
+    c:["SwiftUI","Kotlin · Compose","Node 22 + Fastify","PostgreSQL + pgvector","RAG"], u:"https://github.com/Nachodusan/bitacora-app" },
+  { w:"Tutor IA", t:"Tutor IA", d:"Facilitador de aprendizaje sobre el material oficial del Mineduc. RAG de doble corpus tipado, retrieval híbrido con reranker como gate de abstención y verificación NLI por oración: si no está en el material, se abstiene.",
+    c:["TypeScript","Next.js","pgvector","bge-m3","Reranker","NLI"], u:"https://github.com/Nachodusan/tutor-ia" },
+  { w:"Che IA", t:"Che IA", d:"Asistente de voz rioplatense corriendo end-to-end en Apple Silicon. Llama 3.1 8B sobre MLX con RAG sobre 319 ejemplos curados. Tres iteraciones de fine-tuning LoRA medidas y descartadas: prompt más retrieval rindió mejor.",
+    c:["Llama 3.1 8B (MLX)","BM25","Piper TTS","FastAPI"], u:"https://github.com/Nachodusan/ia-rioplatense" },
+  { w:"In The Box", t:"Plataforma de comercio electrónico", d:"Gestión de productos e inventario, panel administrativo para ventas, APIs para manejo dinámico de datos e interfaz responsiva.",
+    c:["React","JavaScript","REST APIs","PostgreSQL"], u:"https://github.com/Nachodusan/inthebox" },
+  { w:"Entreno IA", t:"Entrenador de IA", d:"Diseño y entreno modelos adaptados a cada caso: fine-tuning de LLMs, pipelines RAG e inferencia local optimizada. Curado de datasets, evaluación rigurosa y decisión técnica sobre cuándo entrenar, recuperar o combinar.",
+    c:["LLMs","Fine-tuning","RAG","Embeddings","MLX · PyTorch"], u:"https://github.com/Nachodusan" },
+  { w:"Backend", t:"Backend robusto", d:"APIs seguras y bases de datos optimizadas con Node y SQL. Arquitectura de sistemas y construcción de aplicaciones end-to-end, cuidando estructura, validación, automatización y despliegue.",
+    c:["Node.js","PostgreSQL","MongoDB","REST APIs"], u:"https://github.com/Nachodusan" },
+  { w:"Mobile", t:"Mobile nativo", d:"Experiencias nativas para iOS y Android: Flutter para velocidad de iteración, Kotlin para integración nativa profunda. Push, geolocalización, modo offline y 60fps.",
+    c:["SwiftUI","Jetpack Compose","Flutter","Kotlin"], u:"https://github.com/Nachodusan" }
+];
+
+const FLOODS = ["#2F18FF","#00E5C5","#FF4D2E","#C8FF1E","#F2F1EC"];
+let flood = 0;
+
+const deck = document.getElementById('deck');
+const idx  = document.getElementById('idx');
+const panel = document.getElementById('panel');
+
+/* extrusión: capas de text-shadow */
+function extrude(depth, color){
+  let s = [];
+  for (let i = 1; i <= depth; i++) s.push(`${i*0.055}em ${i*0.055}em 0 ${color}`);
+  return s.join(',');
+}
+
+ITEMS.forEach((it, i) => {
+  const h = document.createElement('h2');
+  h.className = 'word';
+  h.textContent = it.w;
+  h.dataset.i = i;
+  h.tabIndex = 0;
+  h.setAttribute('role','button');
+  h.addEventListener('click', () => { go(i); open(i); });
+  h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(i); open(i); } });
+  deck.appendChild(h);
+
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.textContent = String(i+1).padStart(2,'0');
+  b.addEventListener('click', () => go(i));
+  idx.appendChild(b);
+});
+
+const words = [].slice.call(deck.children);
+let cur = 0;
+
+function layout(){
+  const gapY = Math.min(window.innerHeight * 0.185, 148);
+  words.forEach((w, i) => {
+    const d = i - cur;
+    w.style.transform = `translate(-50%,-50%) translate3d(0, ${d*gapY}px, ${-Math.abs(d)*210}px) rotateX(${d*-8}deg)`;
+    w.classList.toggle('now', d === 0);
+    w.classList.toggle('past', d < 0);
+    w.classList.toggle('next', d > 0);
+    w.style.textShadow = Math.abs(d) <= 1 ? extrude(d === 0 ? 13 : 6, 'var(--ink)') : 'none';
+    w.style.zIndex = String(12 - Math.abs(d));
+  });
+  [].forEach.call(idx.children, (b, i) => b.setAttribute('aria-current', i === cur ? 'true' : 'false'));
+}
+function go(i){
+  cur = Math.max(0, Math.min(ITEMS.length - 1, i));
+  layout();
+}
+layout();
+
+/* rueda / teclado / swipe */
+let lock = false;
+window.addEventListener('wheel', e => {
+  if (lock) return;
+  lock = true; setTimeout(() => lock = false, 260);
+  go(cur + (e.deltaY > 0 ? 1 : -1));
+}, { passive: true });
+window.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown') go(cur+1);
+  if (e.key === 'ArrowUp') go(cur-1);
+  if (e.key === 'Escape') close();
+});
+let ty = null;
+window.addEventListener('touchstart', e => ty = e.touches[0].clientY, { passive: true });
+window.addEventListener('touchend', e => {
+  if (ty === null) return;
+  const dy = ty - e.changedTouches[0].clientY;
+  if (Math.abs(dy) > 40) go(cur + (dy > 0 ? 1 : -1));
+  ty = null;
+}, { passive: true });
+
+/* paralaje con el puntero */
+let tx = 0, tyy = 0, rx = 0, ry = 0;
+window.addEventListener('pointermove', e => {
+  tx = (e.clientX / window.innerWidth - .5);
+  tyy = (e.clientY / window.innerHeight - .5);
+});
+(function loop(){
+  ry += (tx * 17 - ry) * .07;
+  rx += (-tyy * 11 - rx) * .07;
+  deck.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+  requestAnimationFrame(loop);
+})();
+
+/* panel */
+function open(i){
+  const it = ITEMS[i];
+  document.getElementById('p-t').textContent = it.t;
+  document.getElementById('p-d').textContent = it.d;
+  document.getElementById('p-c').innerHTML = it.c.map(c => '<li>'+c+'</li>').join('');
+  const g = document.getElementById('p-g');
+  g.href = it.u; g.textContent = it.u.replace('https://','') + ' ↗';
+  panel.classList.add('on');
+}
+function close(){ panel.classList.remove('on'); }
+document.getElementById('panelx').addEventListener('click', close);
+
+/* color */
+document.getElementById('hue').addEventListener('click', () => {
+  flood = (flood + 1) % FLOODS.length;
+  const f = FLOODS[flood];
+  document.documentElement.style.setProperty('--flood', f);
+  document.documentElement.style.setProperty('--ink', f === '#F2F1EC' ? '#07070A' : '#07070A');
+});
+
+/* puerta */
+document.getElementById('enter').addEventListener('click', () => {
+  document.getElementById('gate').classList.add('off');
+});
+window.addEventListener('resize', layout);
+</script>
+</body>
+</html>

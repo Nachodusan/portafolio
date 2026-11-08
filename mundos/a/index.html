@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dusan — El patio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;overflow:hidden;background:#140722;color:#F4EEFF;
+  font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+canvas{display:block;touch-action:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid #FF6BB5;outline-offset:3px}
+
+#gate{position:fixed;inset:0;z-index:60;background:#140722;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  transition:opacity .7s ease,visibility .7s}
+#gate.off{opacity:0;visibility:hidden}
+#gate h1{font-family:'Archivo Black',sans-serif;font-size:clamp(1.9rem,6vw,3.6rem);
+  letter-spacing:-.04em;line-height:.92;text-transform:uppercase;margin:0;text-align:center;padding:0 24px}
+#gate p{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:#A98BC4;margin:0;text-align:center;padding:0 24px;line-height:1.9}
+#enter{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+  border:1px solid #4B2A6B;padding:14px 32px;min-height:48px;border-radius:999px;transition:.2s}
+#enter:hover{border-color:#FF6BB5;color:#FF6BB5}
+
+.hud{position:fixed;z-index:20;font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.13em;text-transform:uppercase;line-height:1.9;color:#A98BC4;pointer-events:none}
+.hud a,.hud button{pointer-events:auto}
+.hud--tl{top:max(16px,env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px))}
+.hud--bl{bottom:max(16px,env(safe-area-inset-bottom,0px));left:max(16px,env(safe-area-inset-left,0px))}
+.hud--br{bottom:max(16px,env(safe-area-inset-bottom,0px));right:max(16px,env(safe-area-inset-right,0px));text-align:right}
+.hud b{color:#F4EEFF;font-weight:500}
+.hud a:hover{color:#FF6BB5}
+#tips{position:fixed;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom,0px));
+  z-index:20;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:#7D6398;text-align:center;pointer-events:none}
+#reset{position:fixed;z-index:21;top:max(16px,env(safe-area-inset-top,0px));
+  right:max(16px,env(safe-area-inset-right,0px));
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:#A98BC4;border:1px solid #3A2252;border-radius:999px;padding:8px 14px;min-height:36px}
+#reset:hover{color:#FF6BB5;border-color:#FF6BB5}
+
+#panel{position:fixed;z-index:40;left:50%;transform:translateX(-50%) translateY(120%);
+  bottom:0;width:min(640px,100%);background:#1C0C2E;border:1px solid #3A2252;border-bottom:0;
+  border-radius:14px 14px 0 0;padding:24px 26px 30px;transition:transform .45s cubic-bezier(.2,.9,.1,1);
+  max-height:72vh;overflow-y:auto}
+#panel.on{transform:translateX(-50%)}
+#panel .x{position:absolute;top:16px;right:20px;font-family:'JetBrains Mono',monospace;font-size:14px;color:#A98BC4}
+#panel .k{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#FF6BB5}
+#panel h2{font-family:'Archivo Black',sans-serif;font-size:21px;text-transform:uppercase;
+  letter-spacing:-.03em;line-height:1.05;margin:10px 0 0}
+#panel .pts{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:9px}
+#panel .pts li{font-size:13px;line-height:1.55;color:#C9B9DC;padding-left:16px;position:relative}
+#panel .pts li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:#FF6BB5}
+#panel .chips{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:5px}
+#panel .chips li{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#C9B9DC;border:1px solid #3A2252;padding:3px 7px}
+#panel .go{display:inline-block;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:#FF6BB5;border-bottom:1px solid currentColor}
+@media (prefers-reduced-motion:reduce){#panel{transition:none}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <p>Ignacio Duque Sandoval · dusan.codes</p>
+  <h1>Agarrá los bloques<br>y tiralos</h1>
+  <button id="enter" type="button">Entrar</button>
+</div>
+
+<div class="hud hud--tl"><b>Dusan</b><br>AI Trainer · Full-Stack + Mobile</div>
+<button id="reset" type="button">reordenar</button>
+<div class="hud hud--bl">Disponible · 2026<br>LLM eval · RAG · MLX<br>Argentina | Chile</div>
+<div class="hud hud--br">
+  <a href="https://github.com/Nachodusan" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+  <a href="../../cv.pdf" target="_blank" rel="noopener noreferrer">CV</a><br>
+  dusanemp@gmail.com<br>
+  <a href="../">← los tres mundos</a>
+</div>
+<div id="tips">arrastrá un bloque y soltalo · tocá para abrirlo · fondo para orbitar</div>
+
+<aside id="panel">
+  <button class="x" id="px" type="button" aria-label="Cerrar">✕</button>
+  <p class="k" id="pk"></p>
+  <h2 id="pt"></h2>
+  <ul class="pts" id="pp"></ul>
+  <ul class="chips" id="pc"></ul>
+  <a class="go" id="pg" target="_blank" rel="noopener noreferrer"></a>
+</aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const BLOCKS = [
+  { id:'bit', word:'BITÁCORA', col:0xFF6BB5, k:'App móvil & IA', t:'Bitácora', u:'https://github.com/Nachodusan/bitacora-app',
+    p:['Apps nativas en SwiftUI y Jetpack Compose con transcripción de voz on-device: el audio no sale del teléfono.',
+       'Memoria larga con pgvector: los resúmenes de cada día se vectorizan, se recuperan y se reordenan en cada turno.',
+       'Servidor Node 22 + Fastify sobre PostgreSQL sin ORM, con streaming de texto y voz.',
+       'Corte de riesgo duplicado en cliente y servidor, y techo de gasto antes de llamar al proveedor.'],
+    c:['SwiftUI','Kotlin · Compose','Node 22','Fastify','pgvector','TTS'] },
+  { id:'tut', word:'TUTOR IA', col:0x6BE3FF, k:'RAG & evaluación de LLM', t:'Tutor IA', u:'https://github.com/Nachodusan/tutor-ia',
+    p:['RAG de doble corpus tipado: texto del estudiante como fuente citable, guía docente como pedagogía.',
+       'Retrieval híbrido (denso + léxico + RRF) con reranker como gate de abstención.',
+       'Verificación NLI direccional por oración y detección de premisa falsa.',
+       'Harness de evaluación propio con golden set anclado a chunks reales.'],
+    c:['TypeScript','Next.js','Turborepo','pgvector','bge-m3','NLI'] },
+  { id:'che', word:'CHE IA', col:0xFFD166, k:'IA conversacional', t:'Che IA', u:'https://github.com/Nachodusan/ia-rioplatense',
+    p:['Llama 3.1 8B sobre MLX con recuperación BM25 sobre 319 ejemplos curados.',
+       'TTS local con voz argentina y post-procesador léxico de más de 150 reglas.',
+       'Pipeline end-to-end en Apple Silicon, sin nube.',
+       'Tres iteraciones de LoRA medidas y descartadas: prompt más retrieval rindió mejor.'],
+    c:['Llama 3.1 8B (MLX)','BM25','Piper TTS','FastAPI'] },
+  { id:'box', word:'IN THE BOX', col:0xB388FF, k:'Proyecto web', t:'Plataforma de comercio electrónico', u:'https://github.com/Nachodusan/inthebox',
+    p:['Sistema de gestión de productos e inventario.',
+       'Integración de APIs para manejo dinámico de datos.',
+       'Panel administrativo para ventas y productos.',
+       'Interfaz responsiva optimizada para móviles.'],
+    c:['React','JavaScript','REST APIs','PostgreSQL'] },
+  { id:'mob', word:'MOBILE', col:0x7CFFB2, k:'Capacidad', t:'Mobile nativo', u:'https://github.com/Nachodusan',
+    p:['Experiencias nativas para iOS y Android con motores multiplataforma.',
+       'Flutter para velocidad de iteración, Kotlin para integración nativa profunda.',
+       'Push, geolocalización, modo offline y 60fps.'],
+    c:['SwiftUI','Jetpack Compose','Flutter','Kotlin'] },
+  { id:'bak', word:'BACKEND', col:0xFF8A5C, k:'Capacidad', t:'Backend robusto', u:'https://github.com/Nachodusan',
+    p:['APIs seguras y bases de datos optimizadas con Node y SQL.',
+       'Arquitectura de sistemas y aplicaciones end-to-end.',
+       'Estructura, validación de datos, automatización, escalabilidad y despliegue.'],
+    c:['Node.js','PostgreSQL','MongoDB','REST APIs'] },
+  { id:'yo',  word:'IGNACIO', col:0xF4EEFF, k:'Quién soy', t:'Ignacio Duque Sandoval', u:'https://github.com/Nachodusan',
+    p:['Desarrollador Full Stack con fortaleza en backend y arquitectura de sistemas.',
+       'AI Trainer: fine-tuning de LLMs, pipelines RAG e inferencia local optimizada.',
+       'Argentina | Chile · ES-AR/CL nativo · inglés técnico.',
+       'Disponible para trabajo.'],
+    c:['TypeScript','Python','Swift','Kotlin','SQL'] }
+];
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x140722);
+scene.fog = new THREE.FogExp2(0x140722, 0.038);
+
+const camera = new THREE.PerspectiveCamera(46, innerWidth/innerHeight, 0.1, 160);
+const renderer = new THREE.WebGLRenderer({ antialias:true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+scene.add(new THREE.HemisphereLight(0x9B6BD6, 0x1A0A2A, 0.85));
+const sun = new THREE.DirectionalLight(0xFFE9F6, 1.25);
+sun.position.set(6, 12, 7);
+sun.castShadow = true;
+sun.shadow.mapSize.set(1024,1024);
+sun.shadow.camera.left = -16; sun.shadow.camera.right = 16;
+sun.shadow.camera.top = 16; sun.shadow.camera.bottom = -16;
+scene.add(sun);
+const p1 = new THREE.PointLight(0xFF4FA3, 1.4, 26); p1.position.set(-8, 3, -6); scene.add(p1);
+const p2 = new THREE.PointLight(0x4FD4FF, 1.0, 24); p2.position.set(9, 2.5, 5);  scene.add(p2);
+
+/* suelo */
+const groundMat = new THREE.MeshStandardMaterial({ color:0x200C35, roughness:0.95, metalness:0.05 });
+const ground = new THREE.Mesh(new THREE.CircleGeometry(30, 72), groundMat);
+ground.rotation.x = -Math.PI/2;
+ground.receiveShadow = true;
+scene.add(ground);
+const grid = new THREE.GridHelper(56, 28, 0xC78BFF, 0x7A42B8);
+grid.position.y = 0.014;
+grid.material.transparent = true; grid.material.opacity = 0.55;
+scene.add(grid);
+
+/* anillo-objetivo */
+const RING_R = 2.6;
+const ring = new THREE.Mesh(new THREE.RingGeometry(RING_R - 0.08, RING_R, 64),
+  new THREE.MeshBasicMaterial({ color:0xFF6BB5, transparent:true, opacity:0.55, side:THREE.DoubleSide }));
+ring.rotation.x = -Math.PI/2; ring.position.y = 0.02;
+scene.add(ring);
+
+/* etiqueta del bloque como textura */
+function labelTex(word, hex){
+  const c = document.createElement('canvas');
+  c.width = 512; c.height = 256;
+  const x = c.getContext('2d');
+  x.fillStyle = '#' + hex.toString(16).padStart(6,'0');
+  x.fillRect(0,0,512,256);
+  x.fillStyle = '#140722';
+  let size = 74;
+  x.font = '900 ' + size + 'px "Archivo Black", Archivo, sans-serif';
+  while (x.measureText(word).width > 452 && size > 26) {
+    size -= 3;
+    x.font = '900 ' + size + 'px "Archivo Black", Archivo, sans-serif';
+  }
+  x.textAlign = 'center'; x.textBaseline = 'middle';
+  x.fillText(word, 256, 134);
+  x.font = '500 20px "JetBrains Mono", monospace';
+  x.fillText('·  dusan.codes  ·', 256, 214);
+  const t = new THREE.CanvasTexture(c);
+  t.encoding = THREE.sRGBEncoding;
+  return t;
+}
+
+const bodies = [];
+function spawn(i){
+  const b = BLOCKS[i];
+  const w = 2.4, h = 1.2, d = 0.55;
+  const face = new THREE.MeshStandardMaterial({ map: labelTex(b.word, b.col), roughness:0.55, metalness:0.12 });
+  const side = new THREE.MeshStandardMaterial({ color: b.col, roughness:0.45, metalness:0.2 });
+  const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), [side, side, side, side, face, face]);
+  mesh.castShadow = true; mesh.receiveShadow = true;
+  const ang = (i / BLOCKS.length) * Math.PI * 2;
+  mesh.position.set(Math.cos(ang) * 6.2, 1.6 + i * 1.5, Math.sin(ang) * 6.2);
+  mesh.rotation.set(Math.random()*0.6, ang, Math.random()*0.4);
+  mesh.userData = {
+    idx: i, r: 1.25,
+    v: new THREE.Vector3(0, 0, 0),
+    av: new THREE.Vector3((Math.random()-.5)*1.4, (Math.random()-.5)*1.4, (Math.random()-.5)*1.4)
+  };
+  const blob = new THREE.Mesh(new THREE.CircleGeometry(1.25, 28),
+    new THREE.MeshBasicMaterial({ color:0x000000, transparent:true, opacity:0.32 }));
+  blob.rotation.x = -Math.PI/2;
+  blob.position.y = 0.02;
+  scene.add(blob);
+  mesh.userData.blob = blob;
+  scene.add(mesh);
+  bodies.push(mesh);
+}
+BLOCKS.forEach((_, i) => spawn(i));
+
+/* cámara orbital */
+let theta = 0.5, phi = 0.46, radius = 15.5;
+const target = new THREE.Vector3(0, 1.3, 0);
+function place(){
+  camera.position.set(
+    target.x + radius * Math.cos(phi) * Math.sin(theta),
+    target.y + radius * Math.sin(phi),
+    target.z + radius * Math.cos(phi) * Math.cos(theta));
+  camera.lookAt(target);
+}
+place();
+
+/* interacción */
+const ray = new THREE.Raycaster();
+const ptr = new THREE.Vector2();
+const dragPlane = new THREE.Plane();
+const hitPt = new THREE.Vector3();
+const el = renderer.domElement;
+let held = null, orbiting = false, lastX = 0, lastY = 0, moved = 0, prev = new THREE.Vector3();
+
+function pick(e){
+  ptr.x = (e.clientX / innerWidth) * 2 - 1;
+  ptr.y = -(e.clientY / innerHeight) * 2 + 1;
+  ray.setFromCamera(ptr, camera);
+  const is = ray.intersectObjects(bodies, false);
+  return is.length ? is[0].object : null;
+}
+el.addEventListener('pointerdown', e => {
+  lastX = e.clientX; lastY = e.clientY; moved = 0;
+  el.setPointerCapture(e.pointerId);
+  const o = pick(e);
+  if (o) {
+    held = o;
+    dragPlane.setFromNormalAndCoplanarPoint(camera.getWorldDirection(new THREE.Vector3()).negate(), o.position);
+    prev.copy(o.position);
+    o.userData.v.set(0,0,0);
+    el.style.cursor = 'grabbing';
+  } else { orbiting = true; el.style.cursor = 'grabbing'; }
+});
+el.addEventListener('pointermove', e => {
+  const dx = e.clientX - lastX, dy = e.clientY - lastY;
+  lastX = e.clientX; lastY = e.clientY;
+  moved += Math.abs(dx) + Math.abs(dy);
+  if (held) {
+    ptr.x = (e.clientX / innerWidth) * 2 - 1;
+    ptr.y = -(e.clientY / innerHeight) * 2 + 1;
+    ray.setFromCamera(ptr, camera);
+    if (ray.ray.intersectPlane(dragPlane, hitPt)) {
+      prev.copy(held.position);
+      held.position.copy(hitPt);
+      held.position.y = Math.max(0.7, held.position.y);
+      held.userData.v.subVectors(held.position, prev).multiplyScalar(13);
+    }
+  } else if (orbiting) {
+    theta -= dx * 0.006;
+    phi = Math.max(0.12, Math.min(1.15, phi + dy * 0.004));
+    place();
+  } else {
+    el.style.cursor = pick(e) ? 'grab' : 'default';
+  }
+});
+function release(e){
+  if (held && moved < 7) openPanel(held.userData.idx);
+  held = null; orbiting = false;
+  el.style.cursor = 'default';
+}
+el.addEventListener('pointerup', release);
+el.addEventListener('pointercancel', release);
+el.addEventListener('wheel', e => {
+  e.preventDefault();
+  radius = Math.max(8, Math.min(26, radius + e.deltaY * 0.014));
+  place();
+}, { passive:false });
+
+/* física simple */
+const G = 17, FLOOR_R = 13;
+function physics(dt){
+  bodies.forEach(b => {
+    const u = b.userData;
+    if (b === held) { b.rotation.y += dt * 0.6; return; }
+    u.v.y -= G * dt;
+    b.position.addScaledVector(u.v, dt);
+    b.rotation.x += u.av.x * dt; b.rotation.y += u.av.y * dt; b.rotation.z += u.av.z * dt;
+
+    if (b.position.y < u.r * 0.52) {
+      b.position.y = u.r * 0.52;
+      if (u.v.y < 0) u.v.y *= -0.42;
+      u.v.x *= 0.88; u.v.z *= 0.88;
+      u.av.multiplyScalar(0.9);
+    }
+    const d = Math.hypot(b.position.x, b.position.z);
+    if (d > FLOOR_R) {
+      const nx = b.position.x / d, nz = b.position.z / d;
+      b.position.x = nx * FLOOR_R; b.position.z = nz * FLOOR_R;
+      const dot = u.v.x * nx + u.v.z * nz;
+      u.v.x -= 1.7 * dot * nx; u.v.z -= 1.7 * dot * nz;
+    }
+    u.av.multiplyScalar(1 - 1.8 * dt);
+    const rest = b.position.y <= u.r * 0.54 && u.v.lengthSq() < 0.35;
+    if (rest) {
+      u.av.multiplyScalar(0.82);
+      b.rotation.x += (Math.round(b.rotation.x / (Math.PI/2)) * (Math.PI/2) - b.rotation.x) * 5.5 * dt;
+      b.rotation.z += (Math.round(b.rotation.z / (Math.PI/2)) * (Math.PI/2) - b.rotation.z) * 5.5 * dt;
+      u.v.x *= 0.9; u.v.z *= 0.9;
+    }
+  });
+  for (let i = 0; i < bodies.length; i++){
+    for (let j = i+1; j < bodies.length; j++){
+      const a = bodies[i], c = bodies[j];
+      const dv = new THREE.Vector3().subVectors(c.position, a.position);
+      dv.y = 0;
+      const dist = dv.length(), min = a.userData.r + c.userData.r;
+      if (dist > 0.0001 && dist < min){
+        dv.multiplyScalar(1 / dist);
+        const push = (min - dist) * 0.5;
+        if (a !== held) a.position.addScaledVector(dv, -push);
+        if (c !== held) c.position.addScaledVector(dv, push);
+        const rel = new THREE.Vector3().subVectors(c.userData.v, a.userData.v).dot(dv);
+        if (rel < 0){
+          const imp = -rel * 0.72;
+          if (a !== held) a.userData.v.addScaledVector(dv, -imp);
+          if (c !== held) c.userData.v.addScaledVector(dv, imp);
+          a.userData.av.x += imp * 0.1; c.userData.av.z -= imp * 0.1;
+        }
+      }
+    }
+  }
+}
+
+/* panel */
+const panel = document.getElementById('panel');
+function openPanel(i){
+  const d = BLOCKS[i];
+  document.getElementById('pk').textContent = d.k;
+  document.getElementById('pt').textContent = d.t;
+  document.getElementById('pp').innerHTML = d.p.map(x => '<li>'+x+'</li>').join('');
+  document.getElementById('pc').innerHTML = d.c.map(x => '<li>'+x+'</li>').join('');
+  const g = document.getElementById('pg');
+  g.href = d.u; g.textContent = d.u.replace('https://','') + ' ↗';
+  panel.classList.add('on');
+}
+document.getElementById('px').addEventListener('click', () => panel.classList.remove('on'));
+addEventListener('keydown', e => { if (e.key === 'Escape') panel.classList.remove('on'); });
+
+/* el anillo abre lo que caiga adentro */
+let ringHot = null;
+function checkRing(){
+  let inside = null;
+  bodies.forEach(b => {
+    if (b === held) return;
+    if (Math.hypot(b.position.x, b.position.z) < RING_R && Math.abs(b.userData.v.y) < 0.6) inside = b;
+  });
+  if (inside && inside !== ringHot){ ringHot = inside; openPanel(inside.userData.idx); }
+  if (!inside) ringHot = null;
+}
+
+document.getElementById('reset').addEventListener('click', () => {
+  bodies.forEach((b, i) => {
+    const ang = (i / bodies.length) * Math.PI * 2;
+    b.position.set(Math.cos(ang) * 6.2, 3 + i * 1.4, Math.sin(ang) * 6.2);
+    b.userData.v.set(0,0,0);
+    b.userData.av.set((Math.random()-.5)*1.6, (Math.random()-.5)*1.6, (Math.random()-.5)*1.6);
+  });
+});
+
+let t0 = performance.now();
+function frame(t){
+  const dt = Math.min(0.033, (t - t0) / 1000); t0 = t;
+  physics(dt);
+  bodies.forEach(b => {
+    const bl = b.userData.blob;
+    bl.position.x = b.position.x; bl.position.z = b.position.z;
+    const h = Math.max(0, b.position.y - 0.6);
+    bl.scale.setScalar(Math.max(0.35, 1 - h * 0.16));
+    bl.material.opacity = Math.max(0.05, 0.34 - h * 0.05);
+  });
+  checkRing();
+  ring.material.opacity = 0.4 + Math.sin(t/420) * 0.16;
+  ring.scale.setScalar(1 + Math.sin(t/900) * 0.012);
+  renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+document.getElementById('enter').addEventListener('click', () => {
+  document.getElementById('gate').classList.add('off');
+});
+</script>
+</body>
+</html>
