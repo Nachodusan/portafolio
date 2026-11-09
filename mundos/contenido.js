@@ -91,9 +91,9 @@ window.DUSAN = {
     titulo: 'Construyamos algo.',
     lead: '¿Tenés un proyecto en mente o simplemente querés conectar? Mi bandeja de entrada siempre está abierta para nuevas oportunidades.',
     links: [
-      { k: 'Email', v: 'dusanemp@gmail.com', u: 'mailto:dusanemp@gmail.com' },
+      { k: 'Email', v: 'nachodusan@gmail.com', u: 'mailto:nachodusan@gmail.com' },
       { k: 'WhatsApp', v: '+54 9 11 6803 7887', u: 'https://wa.me/5491168037887' },
-      { k: 'LinkedIn', v: '/ignacio-d-361698102', u: 'https://www.linkedin.com/in/ignacio-d-361698102/' },
+      { k: 'LinkedIn', v: '/ignaciodusan', u: 'https://www.linkedin.com/in/ignaciodusan/' },
       { k: 'GitHub', v: '@nachodusan', u: 'https://github.com/Nachodusan' },
       { k: 'CV', v: 'cv.pdf', u: '../../cv.pdf' }
     ]

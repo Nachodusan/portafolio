@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatAnswers = {
     fav: "Mi stack preferido para producción es Next.js + Tailwind CSS en el front, Node.js + NestJS para microservicios del backend, y PostgreSQL como base de datos por su solidez. Me encanta TypeScript en todo el flujo.",
     projs: "Busco colaborar en proyectos desafiantes: plataformas SaaS escalables, aplicaciones móviles híbridas complejas (Flutter/Kotlin) y desarrollos que integren IoT e IA para automatizar flujos del mundo real.",
-    avail: "¡Sí, estoy disponible! Podemos agendar una videollamada para analizar los requerimientos de tu proyecto o conversar sobre alianzas freelance. Escríbeme a dusanemp@gmail.com o usa el formulario aquí."
+    avail: "¡Sí, estoy disponible! Podemos agendar una videollamada para analizar los requerimientos de tu proyecto o conversar sobre alianzas freelance. Escríbeme a nachodusan@gmail.com o usa el formulario aquí."
   };
   function appendChatBubble(text, sender) {
     const bubble = document.createElement('div');
@@ -590,14 +590,14 @@ document.addEventListener('DOMContentLoaded', () => {
     successModal.classList.remove('show');
     contactForm.reset();
     inputFields.forEach(f => f.removeAttribute('placeholder-shown'));
-    window.location.href = `mailto:dusanemp@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:nachodusan@gmail.com?subject=${subject}&body=${body}`;
   });
 
   directEmailBtn && directEmailBtn.addEventListener('click', () => {
     successModal.classList.remove('show');
     const subject = encodeURIComponent("Contacto directo desde Portafolio");
     const body = encodeURIComponent("Hola Ignacio,\n\nMe gustaría conversar sobre un proyecto...\n\nSaludos.");
-    window.location.href = `mailto:dusanemp@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:nachodusan@gmail.com?subject=${subject}&body=${body}`;
   });
 
   /* ============================================================
