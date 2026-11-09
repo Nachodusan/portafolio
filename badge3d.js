@@ -1107,7 +1107,7 @@ function buildCardTextures() {
   b.fillText('dusan.codes', W/2, 430);
   b.fillStyle = '#B5B5BD';
   b.font = '500 16px "JetBrains Mono", monospace';
-  b.fillText('dusanemp@gmail.com', W/2, 462);
+  b.fillText('nachodusan@gmail.com', W/2, 462);
   b.fillText('+54 9 11 6803 7887', W/2, 490);
 
   // hologram strip

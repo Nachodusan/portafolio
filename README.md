@@ -35,6 +35,6 @@ No requiere instalación de dependencias — todo se carga vía CDN.
 ## Contacto
 
 - **Web**: [dusan.codes](https://dusan.codes)
-- **Email**: dusanemp@gmail.com
-- **LinkedIn**: [ignacio-d-361698102](https://www.linkedin.com/in/ignacio-d-361698102/)
-- **WhatsApp**: +52 81 2466 3818
+- **Email**: nachodusan@gmail.com
+- **LinkedIn**: [ignaciodusan](https://www.linkedin.com/in/ignaciodusan/)
+- **WhatsApp**: [+54 9 11 6803 7887](https://wa.me/5491168037887)
