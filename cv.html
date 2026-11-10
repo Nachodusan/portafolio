@@ -1,0 +1,302 @@
+<!doctype html>
+<!--
+  Fuente del CV publicado en dusan.codes/cv.pdf
+  Regenerar:  ./build-cv.sh
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Ignacio Agustín Duque Sandoval — CV</title>
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --ink-soft: #3A3A3C;
+    --ink-mute: #6A6A6E;
+    --accent: #FF5C8A;
+    --line: rgba(10,10,10,0.14);
+  }
+
+  @page { size: A4; margin: 13mm 14mm 12mm; }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    margin: 0;
+    font-family: Inter, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-size: 9.1pt;
+    line-height: 1.42;
+    color: var(--ink-soft);
+    /* Sin kerning: Chrome lo emite como desplazamientos dentro del texto y los
+       lectores de PDF parten la palabra ("AI T rainer"). A 9pt no se nota,
+       y deja la capa de texto limpia para los filtros automáticos de CV. */
+    font-kerning: none;
+    font-feature-settings: "liga" 1;
+  }
+
+  /* ---------- encabezado ---------- */
+
+  header { margin-bottom: 11pt; }
+
+  h1 {
+    margin: 0;
+    font-size: 19.5pt;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .role {
+    margin: 4.5pt 0 0;
+    padding-bottom: 6pt;
+    border-bottom: 1.6pt solid var(--accent);
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+
+  .meta {
+    margin: 6pt 0 0;
+    font-size: 8.5pt;
+    color: var(--ink-mute);
+  }
+  .meta a { color: var(--ink-soft); text-decoration: none; }
+  .meta span { white-space: nowrap; }
+  .sep { color: var(--line); padding: 0 3pt; }
+
+  /* ---------- secciones ---------- */
+
+  section { margin-top: 11pt; }
+
+  h2 {
+    margin: 0 0 6pt;
+    padding-bottom: 2.5pt;
+    border-bottom: 0.6pt solid var(--line);
+    font-size: 7.6pt;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .lead { margin: 0; }
+  .lead strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- proyectos ---------- */
+
+  .item { margin-bottom: 8pt; break-inside: avoid; }
+  .item:last-child { margin-bottom: 0; }
+
+  .item__head {
+    margin: 0 0 2.5pt;
+    font-size: 9.6pt;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .item__head .dash { color: var(--ink-mute); font-weight: 400; }
+  .item__head .what { font-weight: 500; color: var(--ink-soft); }
+
+  .item__repo {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 7.7pt;
+    font-weight: 400;
+    color: var(--ink-mute);
+    white-space: nowrap;
+  }
+
+  ul { margin: 0; padding-left: 10pt; list-style: none; }
+  li { position: relative; margin-bottom: 1.6pt; }
+  li:last-child { margin-bottom: 0; }
+  li::before {
+    content: "";
+    position: absolute;
+    left: -8pt;
+    top: 4.1pt;
+    width: 2.6pt;
+    height: 2.6pt;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  li b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- stack y listas en dos columnas ---------- */
+
+  .rows { display: grid; grid-template-columns: 62pt 1fr; gap: 2.4pt 7pt; }
+  .rows dt {
+    font-size: 7.8pt;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding-top: 0.4pt;
+  }
+  .rows dd { margin: 0; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16pt; }
+
+  .edu { margin: 0; padding: 0; list-style: none; }
+  .edu li { margin-bottom: 2.4pt; padding-left: 0; }
+  .edu li::before { display: none; }
+  .edu b { color: var(--ink); font-weight: 600; }
+  .edu .when { color: var(--ink-mute); }
+
+  .prior { margin: 0; color: var(--ink-mute); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ignacio Agustín Duque Sandoval</h1>
+  <p class="role">AI Trainer · Evaluación de LLMs y agentes · RAG · Inferencia on-device</p>
+  <p class="meta">
+    <span>Argentina&nbsp;|&nbsp;Chile</span><span class="sep">·</span><span>Remoto</span><span class="sep">·</span><span><a href="mailto:nachodusan@gmail.com">nachodusan@gmail.com</a></span><span class="sep">·</span><span>+56&nbsp;9&nbsp;2188&nbsp;1312</span><br />
+    <span><a href="https://dusan.codes">dusan.codes</a></span><span class="sep">·</span><span><a href="https://github.com/Nachodusan">github.com/Nachodusan</a></span><span class="sep">·</span><span><a href="https://www.linkedin.com/in/ignaciodusan/">linkedin.com/in/ignaciodusan</a></span>
+  </p>
+</header>
+
+<section>
+  <h2>Perfil</h2>
+  <p class="lead">
+    <strong>Un número que nadie auditó no es un resultado.</strong> Construyo sistemas con LLMs y el
+    instrumento que los juzga —golden sets, verificación de trayectoria, medición de alucinación,
+    benchmarks a recall igualado— y publico los dos, incluidas las veces en que el instrumento estaba
+    mal. Siete proyectos con evidencia reproducible, de los cuales cuatro son herramientas de medición
+    y los tres hallazgos que más enseñaron fueron resultados negativos: un benchmark inerte, una ruta
+    de recuperación que nunca se dispara y tres iteraciones de fine-tuning descartadas con las métricas
+    a la vista.
+  </p>
+</section>
+
+<section>
+  <h2>Proyectos · Evaluación y medición</h2>
+
+  <div class="item">
+    <p class="item__head">agent-evals <span class="dash">—</span> <span class="what">framework de evaluación de agentes, sin dependencias en el núcleo</span> <span class="item__repo">github.com/Nachodusan/agent-evals</span></p>
+    <ul>
+      <li>Verificación de trayectoria: qué herramientas llamó el agente, en qué orden y de qué errores se recuperó. La respuesta final es sólo una de las comprobaciones.</li>
+      <li>Un caso pasa <b>si pasaron todos los intentos</b>; lo intermedio se reporta como inestable en vez de redondearse a un porcentaje que no reproduce.</li>
+      <li>Apuntado a mi propio sql-agent encontró tres cosas que una sola corrida no puede ver: un caso que “pasaba” era <b>una moneda al aire</b> (0/3, después 1/3), el agente reportaba SQL que nunca ejecutó, y un cuarto de las fallas del modelo débil eran crashes dentro de mi código.</li>
+      <li>Python, sin dependencias en el core. 30 tests.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <p class="item__head">sql-agent <span class="dash">—</span> <span class="what">agente de lenguaje natural a SQL con el loop instrumentado</span> <span class="item__repo">github.com/Nachodusan/sql-agent</span></p>
+    <ul>
+      <li>Loop LangGraph con tool calling: inspecciona el esquema, escribe SQL, lo ejecuta y responde. Cada llamada queda registrada con latencia, tokens y costo, y la corrida completa serializa a JSON.</li>
+      <li><b>6/8 en el golden set con DeepSeek-V3 por US$&nbsp;0,0136</b>, y las dos fallas son SQL válido que devuelve números plausibles y equivocados. Por eso la corrección se mide contra queries de referencia y no contra la prosa, que se lee perfecta en los dos casos.</li>
+      <li>La recuperación de errores que fui a demostrar <b>nunca se disparó</b>: 0 % medido en ocho preguntas y dos modelos, porque ambos consultan el esquema antes de escribir. El hallazgo quedó publicado en lugar del que buscaba.</li>
+      <li>Python, LangGraph, SQLite sembrado con trampas (fan-out de joins, montos en centavos, pedidos anulados).</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <p class="item__head">vector-db-bench <span class="dash">—</span> <span class="what">Qdrant vs. Chroma vs. pgvector a recall igualado</span> <span class="item__repo">github.com/Nachodusan/vector-db-bench</span></p>
+    <ul>
+      <li>41.896 fragmentos embebidos con BGE-M3 (1024d), indexados con HNSW idéntico (<i>M</i>=16, <i>ef_construction</i>=200) en Apple M4. Comparar con los valores por defecto mide los defaults, así que la suite barre la perilla y mide recall contra fuerza bruta exacta.</li>
+      <li><b>La brecha crece con la precisión</b>: p95 de 1,4× a recall 0,90 y de 3,4× a 0,99. “Cuál es más rápida” no tiene respuesta hasta nombrar un recall objetivo.</li>
+      <li>Chroma queda fuera de la tabla con el motivo escrito: acepta <i>ef_search</i>, lo persiste, lo reporta de vuelta y <b>es inerte</b> —resultados idénticos byte a byte para las 500 consultas en toda la barrida.</li>
+      <li>La sección más larga del informe son las cinco formas en que el benchmark estuvo mal antes de estar bien, incluido un bug propio que inflaba la latencia de pgvector 2,4×. Tres de esas cinco hoy son guards automáticos.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <p class="item__head">tinyllm-ios <span class="dash">—</span> <span class="what">el throughput que un teléfono realmente sostiene</span> <span class="item__repo">github.com/Nachodusan/tinyllm-ios</span></p>
+    <ul>
+      <li>MLX Swift con Qwen2.5-0.5B en 4 bits sobre un iPhone 16: <b>108,85 tok/s en la primera generación y 66,32 sostenidos</b> en 150 corridas seguidas (61 % retenido). Los dos son correctos; sólo uno describe usar la cosa.</li>
+      <li><i>ProcessInfo.thermalState</i> llega tarde: cuando iOS reportó presión térmica por primera vez, el throughput ya había perdido un cuarto. Una app que sólo degrada al cambiar de estado ya le entregó ese cuarto al usuario.</li>
+      <li>Una curva que baja tiene una segunda explicación idéntica por dentro —estado acumulado en el proceso—, así que la suite enfría tres minutos y repite el lote: <b>recuperó el 99 % de la ráfaga con la memoria plana</b> en las 300 generaciones. Eso convierte “térmico” en un hallazgo y no en una suposición.</li>
+      <li>La primera medición fueron 12 corridas y decía “retenido 86 %, sin throttling”: aritméticamente correcta, equivocada por 39 %. Quedó guardada como evidencia y el informe ahora se advierte solo. Swift, xcodegen, devicectl; 19 tests.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Proyectos · Producto</h2>
+
+  <div class="item">
+    <p class="item__head">Bitácora <span class="dash">—</span> <span class="what">diario hablado con IA para acompañar la terapia · iOS, Android y backend, de punta a punta</span></p>
+    <ul>
+      <li>Apps nativas en SwiftUI y Jetpack Compose con transcripción de voz on-device: el audio no sale del teléfono. Offline-first, con cola de envíos que sincroniza sin duplicar.</li>
+      <li>El psicólogo recibe un informe mensual donde cada dato está respaldado por la cita literal del paciente, que nunca ve el informe para no empujarlo al autodiagnóstico. Detección de riesgo en cliente y servidor.</li>
+      <li>Memoria de largo plazo con pgvector: los resúmenes de cada día se vectorizan, se recuperan y se reordenan en cada turno.</li>
+      <li>Fastify + PostgreSQL (jsonb, migraciones incrementales) en VPS Ubuntu con systemd, red privada Tailscale e instancia aislada por cliente, con tope mensual de gasto en IA y costo por llamada registrado. <b>268 tests automatizados</b> (151 backend, 96 iOS, 21 Android) y simulación de un mes completo de uso.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <p class="item__head">Tutor IA <span class="dash">—</span> <span class="what">facilitador de aprendizaje sobre material oficial del Mineduc</span></p>
+    <ul>
+      <li>RAG de doble corpus tipado: el texto del estudiante como fuente citable y la guía docente como pedagogía anclada al objetivo de aprendizaje.</li>
+      <li>Retrieval híbrido (denso + léxico + RRF) con reranker como gate de abstención, verificación NLI direccional por oración y detección de premisa falsa contra alucinaciones, corriendo en el chat real.</li>
+      <li>Harness propio con golden set anclado a fragmentos reales: <b>recall@5 de 88 % sobre ~38.000 fragmentos en 35 asignaturas</b>. Un experimento midió el techo del modelo en matemática y la materia salió del alcance.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <p class="item__head">IA Rioplatense <span class="dash">—</span> <span class="what">chat por voz con LLM local, sin APIs cloud</span> <span class="item__repo">github.com/Nachodusan/ia-rioplatense</span></p>
+    <ul>
+      <li>Llama 3.1 8B vía MLX, 100 % local en Apple Silicon, con RAG BM25 sobre 319 ejemplos curados y un post-procesador léxico de 150+ reglas contextuales para garantizar voseo y vocabulario rioplatense.</li>
+      <li>Pipeline con SSE streaming del LLM y cola TTS secuencial: texto progresivo en pantalla y voz arrancando en ~1 s.</li>
+      <li><b>Descarté tres iteraciones de fine-tuning LoRA</b> con las métricas A/B a la vista y documenté el diseño que las reemplazó.</li>
+    </ul>
+  </div>
+
+  <p class="prior"><b style="color:var(--ink)">Antes:</b> plataforma de comercio electrónico con panel administrativo, sistema de registro masivo de datos (web y móvil) y plataforma IoT para monitoreo de sensores con dashboard en tiempo real — React, Node.js, PostgreSQL, MongoDB, Arduino, Kotlin y Flutter.</p>
+</section>
+
+<section>
+  <h2>Tecnologías</h2>
+  <dl class="rows">
+    <dt>Evaluación</dt>
+    <dd>Golden sets · verificación de trayectoria · repeats y flakiness · recall@k contra fuerza bruta · verificación NLI · gates de abstención · trazas con latencia, tokens y costo</dd>
+
+    <dt>IA / LLMs</dt>
+    <dd>LangGraph · tool calling · RAG híbrido (denso + léxico + RRF) · rerankers (BGE-M3, Qwen3) · MLX y MLX Swift · Llama 3.1 · salidas estructuradas · prompt engineering · Piper TTS</dd>
+
+    <dt>Datos</dt>
+    <dd>PostgreSQL · pgvector · Qdrant · Chroma · SQLite · MongoDB · MySQL</dd>
+
+    <dt>Lenguajes</dt>
+    <dd>Python · TypeScript / JavaScript · Swift · Kotlin · C/C++</dd>
+
+    <dt>Backend</dt>
+    <dd>FastAPI · Node.js · Fastify · REST APIs</dd>
+
+    <dt>Frontend</dt>
+    <dd>React · HTML5 · CSS3</dd>
+
+    <dt>Mobile</dt>
+    <dd>SwiftUI · SwiftData · Jetpack Compose · Flutter</dd>
+
+    <dt>Infra</dt>
+    <dd>Linux (Ubuntu) · systemd · Docker · Tailscale · Vultr · Git y GitHub · GitHub Actions</dd>
+  </dl>
+</section>
+
+<div class="cols">
+  <section>
+    <h2>Educación</h2>
+    <ul class="edu">
+      <li><b>Desarrollador web</b> — TripleTen LatAm <span class="when">(oct. 2025 – sept. 2026)</span></li>
+      <li><b>Ingeniería en Informática</b> — Universidad de Buenos Aires <span class="when">(en curso)</span></li>
+      <li><b>Curso de JavaScript</b> — CoderHouse <span class="when">(2022)</span></li>
+      <li><b>Bachiller en Medicina</b> — Universidad de Buenos Aires <span class="when">(2020 – 2022)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Idiomas</h2>
+    <ul class="edu">
+      <li><b>Español</b> — nativo, rioplatense y Chile</li>
+      <li><b>Inglés</b> — intermedio</li>
+    </ul>
+  </section>
+</div>
+
+</body>
+</html>
