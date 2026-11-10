@@ -1,4 +1,4 @@
-# Dusan — Full-Stack Developer & System Architect
+# Dusan — AI Trainer · LLM Evals & RAG · On-Device
 
 Portafolio personal de [Ignacio Duque Sandoval](https://github.com/Nachodusan).
 
@@ -20,6 +20,8 @@ Sitio estático con un gafete 3D interactivo (Three.js + Rapier physics), redise
 ├── style.css       # Sistema de tokens + componentes + responsive
 ├── script.js       # Lógica UI: nav, cursor, modal, mockup móvil, reveals
 ├── badge3d.js      # Gafete 3D + física Rapier (módulo ES)
+├── i18n.js         # Diccionario ES/EN y conmutador de idioma
+├── og-image.png    # Preview 1200×630 para compartir
 └── README.md
 ```
 

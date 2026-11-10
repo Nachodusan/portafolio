@@ -655,10 +655,10 @@ ul { list-style: none; }
   background: var(--ink);
   transition: transform var(--transition-fast), top var(--transition-fast), opacity var(--transition-fast);
 }
-.nav__burger span:nth-child(1) { top: 15px; }
-.nav__burger span:nth-child(2) { top: 22px; }
-.nav__burger.open span:nth-child(1) { top: 19px; transform: translateX(-50%) rotate(45deg); }
-.nav__burger.open span:nth-child(2) { top: 19px; transform: translateX(-50%) rotate(-45deg); }
+.nav__burger span:nth-child(1) { top: 17px; }
+.nav__burger span:nth-child(2) { top: 24px; }
+.nav__burger.open span:nth-child(1) { top: 21px; transform: translateX(-50%) rotate(45deg); }
+.nav__burger.open span:nth-child(2) { top: 21px; transform: translateX(-50%) rotate(-45deg); }
 
 /* Menu overlay */
 .menu-overlay {
@@ -764,11 +764,14 @@ ul { list-style: none; }
   display: block;
   overflow: hidden;
 }
+/* El titular tarda (duración + retardo del último .word) en ser legible, y es
+   el texto que decide si alguien se queda. Era 1.1s + 0.47s = 1.57s; ahora el
+   último termina a los 0.82s. La cortina sigue leyéndose como cortina. */
 .hero__line .word {
   display: inline-block;
   transform: translateY(110%);
-  animation: heroReveal 1.1s var(--ease-out) forwards;
-  animation-delay: calc(var(--i, 0) * 0.08s + 0.15s);
+  animation: heroReveal 0.6s var(--ease-out) forwards;
+  animation-delay: calc(var(--i, 0) * 0.045s + 0.04s);
 }
 .hero__line[data-line="1"] .word:nth-child(1) { --i: 0; }
 .hero__line[data-line="1"] .word:nth-child(3) { --i: 1; }
@@ -1942,4 +1945,50 @@ ul { list-style: none; }
   .hero__line .word { transform: translateY(0); }
   .kinetic__track { animation: none; }
   .reveal { opacity: 1; transform: none; }
+}
+
+
+/* ============================================================
+   TAP TARGETS (>= 44px)
+   ============================================================
+   Once de los controles del sitio medían menos de 44px de alto en un
+   viewport de 375px. Casi todos eran texto chico en una fila: legibles,
+   pero difíciles de acertar con el pulgar.
+
+   Dos arreglos distintos según el caso. Donde el elemento puede crecer sin
+   mover nada, crece con min-height. Donde la fila que lo contiene define el
+   ritmo vertical del diseño —el pie, el pie del menú— el área crece con
+   padding y se compensa con un margen negativo igual, así el toque gana
+   altura y el layout no se entera.
+   ------------------------------------------------------------ */
+
+/* Crecen sin consecuencias */
+.nav__brand,
+.nav__lang,
+.hero__scroll,
+.device-toggle-btn {
+  min-height: 44px;
+}
+.nav__burger {
+  width: 44px;
+  height: 44px;
+}
+
+/* El subrayado tiene que quedar pegado al texto, así que el área crece
+   hacia arriba y el margen superior se recorta en la misma medida. */
+.section__link {
+  padding-top: 1.2rem;
+  margin-top: 0.4rem;
+}
+
+/* Filas cuyo alto es parte del diseño: padding hacia fuera, margen hacia
+   dentro. */
+.foot__row a,
+.menu-overlay__foot a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 0.85rem 0;
+  margin: -0.85rem 0;
 }

@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Ignacio Duque — AI Trainer · LLM Evaluation &amp; RAG · Mobile</title>
-  <meta name="description" content="Construyo productos con IA de punta a punta: apps nativas iOS y Android, backend, RAG y evaluación de modelos. Bitácora, Tutor IA (recall@5 88 %) e IA Rioplatense. Disponible en Chile y Argentina, remoto." />
+  <meta name="description" content="Construyo productos con LLMs y la evaluación que demuestra que funcionan: evals de agentes, RAG con gate de abstención, benchmarking a recall fijo e inferencia on-device. Siete proyectos con los números y los errores de medición publicados. Chile y Argentina, remoto." />
   <meta name="author" content="Ignacio Duque Sandoval" />
-  <meta name="keywords" content="AI Trainer,LLM Evaluation,Evaluación de modelos,RAG,Prompt Engineering,Swift,Kotlin,Flutter,React,Next.js,Node.js,Python,PostgreSQL,pgvector,Ignacio Duque,Dusan" />
+  <meta name="keywords" content="AI Trainer,LLM Evaluation,Evals de agentes,Evaluación de modelos,RAG,Retrieval,pgvector,Qdrant,HNSW,LangGraph,MLX,Inferencia on-device,Prompt Engineering,Swift,Kotlin,Python,TypeScript,Ignacio Duque,Dusan" />
   <link rel="canonical" href="https://dusan.codes/" />
   <meta name="theme-color" content="#0A0A0A" />
 
@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <meta property="og:title" content="Ignacio Duque — AI Trainer · LLM Evaluation &amp; RAG · Mobile" />
-  <meta property="og:description" content="Apps con IA de punta a punta: iOS y Android nativo, backend, RAG y evaluación de modelos. Disponible en Chile y Argentina, remoto." />
+  <meta property="og:description" content="Evals de agentes, RAG con gate de abstención, benchmarking a recall fijo e inferencia on-device. Los números publicados con los errores de medición incluidos. Chile y Argentina, remoto." />
   <meta property="og:url" content="https://dusan.codes/" />
   <meta property="og:site_name" content="Ignacio Duque · dusan.codes" />
   <meta property="og:locale" content="es_AR" />
@@ -26,19 +26,25 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="Ignacio Duque — AI Trainer, Full-Stack + Mobile. LLM Evaluation, RAG, MLX, Swift, Kotlin, Flutter." />
+  <meta property="og:image:alt" content="Ignacio Duque — AI Trainer, LLM Evals + On-Device. RAG, MLX, pgvector, Qdrant, LangGraph, Swift, Python." />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ignacio Duque — AI Trainer · LLM Evaluation &amp; RAG · Mobile" />
-  <meta name="twitter:description" content="Apps con IA de punta a punta: iOS y Android nativo, backend, RAG y evaluación de modelos." />
+  <meta name="twitter:description" content="Evals de agentes, RAG con gate de abstención, benchmarking a recall fijo e inferencia on-device." />
   <meta name="twitter:image" content="https://dusan.codes/og-image.png" />
-  <meta name="twitter:image:alt" content="Ignacio Duque — AI Trainer, Full-Stack + Mobile." />
+  <meta name="twitter:image:alt" content="Ignacio Duque — AI Trainer, LLM Evals + On-Device." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Anton carga el H1 del hero. Sin este preload el navegador tiene que
+       descargar primero la hoja de Google Fonts para enterarse de que existe,
+       y el titular más grande de la página se dibuja en la tipografía de
+       respaldo y salta al reflujo. El subset latino alcanza para el titular. -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8CSKlv.woff2">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Anton&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=20261107b" />
+  <link rel="stylesheet" href="style.css?v=20261110a" />
 
   <script type="importmap">
   {
@@ -116,18 +122,18 @@
 
       <h1 class="hero__title">
         <span class="hero__line" data-line="1"><span class="word">AI</span><span class="dot-divider">·</span><span class="word">TRAINER</span></span>
-        <span class="hero__line" data-line="2"><span class="word">FULL-STACK</span></span>
-        <span class="hero__line" data-line="3"><span class="word">+ MOBILE</span></span>
-        <span class="hero__line hero__line--accent" data-line="4"><span class="word">DEVELOPER</span></span>
+        <span class="hero__line" data-line="2"><span class="word">LLM EVALS</span></span>
+        <span class="hero__line" data-line="3"><span class="word">+ ON-DEVICE</span></span>
+        <span class="hero__line hero__line--accent" data-line="4"><span class="word">ENGINEER</span></span>
       </h1>
 
-      <p class="mono hero__tagline">LLM eval (Llama, RAG, MLX) | React • Python • Kotlin • Flutter | ES-AR/CL native | Open to Work</p>
+      <p class="mono hero__tagline">LLM evals · RAG · on-device inference | Python • TypeScript • Swift • Kotlin | ES-AR/CL native | Open to Work</p>
 
       <div class="hero__base">
         <div class="hero__bio">
           <p class="mono hero__bio-lbl" data-i18n="hero.bio.lbl">[ 01 — Quién soy ]</p>
           <p class="hero__bio-text" data-i18n="hero.bio.text">
-            Soy desarrollador Full Stack con fortaleza en backend, arquitectura de sistemas y construcción de aplicaciones end-to-end. Diseño soluciones completas cuidando estructura, validación de datos, automatización, escalabilidad y despliegue.
+            Construyo productos con LLMs y la evaluación que demuestra que funcionan. Casi todo lo que entrego vive donde el modelo tiene que acertar —fichas clínicas, material oficial— así que el grounding, la abstención y la medición me importan más que la fluidez. Y lo primero que mido es mi propio instrumento: en la mitad de mis repos el primer hallazgo fue que el harness estaba mal.
           </p>
           <p class="mono hero__bio-name" data-i18n="hero.bio.name">— Ignacio Duque Sandoval</p>
         </div>
@@ -154,11 +160,11 @@
         <span class="section__num mono">(02)</span>
         <span class="section__lbl mono" data-i18n="cap.label">Capabilities</span>
         <h2 class="section__title">
-          <span data-i18n="cap.title.a">Más allá del código:</span><br/>
-          <em data-i18n="cap.title.b">Soluciones integrales.</em>
+          <span data-i18n="cap.title.a">Primero la medición:</span><br/>
+          <em data-i18n="cap.title.b">después el modelo.</em>
         </h2>
         <p class="section__lead" data-i18n="cap.lead">
-          No me limito a escribir funciones; diseño ecosistemas. Desde la arquitectura de datos hasta la experiencia final, mi enfoque es construir sistemas robustos, escalables y útiles.
+          Un número que nadie auditó no es un resultado. Construyo el sistema y el instrumento que lo juzga, y publico los dos —incluidas las veces en que el instrumento estaba mal.
         </p>
       </header>
 
@@ -166,37 +172,49 @@
         <article class="cap-block reveal">
           <div class="cap-block__num">01</div>
           <div class="cap-block__main">
-            <h3 class="cap-block__title"><span data-i18n="cap.1.title.a">Frontend</span><br/><span data-i18n="cap.1.title.b">Reactivo.</span></h3>
-            <p class="cap-block__desc" data-i18n="cap.1.desc">Interfaces modernas, rápidas y accesibles con Next.js.</p>
+            <h3 class="cap-block__title"><span data-i18n="cap.1.title.a">Evaluación</span><br/><span data-i18n="cap.1.title.b">de LLMs.</span></h3>
+            <p class="cap-block__desc" data-i18n="cap.1.desc">Golden sets anclados a datos reales, verificación de trayectoria y corridas repetidas. Un caso que pasó una vez no pasó: se reporta como inestable, no como porcentaje. Los resultados negativos se publican como se encontraron.</p>
             <ul class="chip-list">
-              <li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind</li>
+              <li>Golden sets</li><li>Trajectory checks</li><li>Flakiness</li><li>recall@k</li><li>Medición de alucinación</li><li>pytest</li>
             </ul>
           </div>
-          <div class="cap-block__icon"><i data-lucide="panels-top-left"></i></div>
+          <div class="cap-block__icon"><i data-lucide="ruler"></i></div>
         </article>
 
         <article class="cap-block reveal">
           <div class="cap-block__num">02</div>
           <div class="cap-block__main">
-            <h3 class="cap-block__title"><span data-i18n="cap.2.title.a">Backend</span><br/><span data-i18n="cap.2.title.b">Robusto.</span></h3>
-            <p class="cap-block__desc" data-i18n="cap.2.desc">APIs seguras y bases de datos optimizadas con Supabase/SQL y Node.</p>
+            <h3 class="cap-block__title"><span data-i18n="cap.2.title.a">RAG y</span><br/><span data-i18n="cap.2.title.b">recuperación.</span></h3>
+            <p class="cap-block__desc" data-i18n="cap.2.desc">Retrieval híbrido con reranker usado como gate de abstención: si no está en el material, el sistema lo dice en vez de inventar. Bases vectoriales comparadas a recall fijo, no a los defaults de cada vendor.</p>
             <ul class="chip-list">
-              <li>Node.js</li><li>PostgreSQL</li><li>MongoDB</li><li>REST APIs</li>
+              <li>pgvector</li><li>Qdrant</li><li>HNSW</li><li>BGE-M3</li><li>Rerankers</li><li>NLI (mDeBERTa)</li><li>RRF</li>
             </ul>
           </div>
-          <div class="cap-block__icon"><i data-lucide="server"></i></div>
+          <div class="cap-block__icon"><i data-lucide="search-check"></i></div>
         </article>
 
         <article class="cap-block reveal">
           <div class="cap-block__num">03</div>
           <div class="cap-block__main">
-            <h3 class="cap-block__title"><span data-i18n="cap.3.title.a">Entrenador</span><br/><span data-i18n="cap.3.title.b">de IA.</span></h3>
-            <p class="cap-block__desc" data-i18n="cap.3.desc">Diseño y entreno modelos de IA adaptados a cada caso: desde fine-tuning de LLMs y pipelines RAG hasta inferencia local optimizada. Curado de datasets, evaluación rigurosa y decisión técnica sobre cuándo entrenar, recuperar o combinar.</p>
+            <h3 class="cap-block__title"><span data-i18n="cap.3.title.a">Inferencia</span><br/><span data-i18n="cap.3.title.b">on-device.</span></h3>
+            <p class="cap-block__desc" data-i18n="cap.3.desc">Modelos cuantizados corriendo en el teléfono y en Apple Silicon, sin nube. Medido por throughput sostenido y no por la primera generación, porque un iPhone pierde el 39% cuando se calienta.</p>
             <ul class="chip-list">
-              <li>LLMs</li><li>Fine-tuning</li><li>RAG</li><li>Embeddings</li><li>Datasets</li><li>MLX · PyTorch</li><li>Prompt Engineering</li>
+              <li>MLX · MLX Swift</li><li>Cuantización 4-bit</li><li>Llama 3.1</li><li>Qwen2.5</li><li>Throughput sostenido</li><li>Presión térmica</li>
             </ul>
           </div>
-          <div class="cap-block__icon"><i data-lucide="brain-circuit"></i></div>
+          <div class="cap-block__icon"><i data-lucide="cpu"></i></div>
+        </article>
+
+        <article class="cap-block reveal">
+          <div class="cap-block__num">04</div>
+          <div class="cap-block__main">
+            <h3 class="cap-block__title"><span data-i18n="cap.4.title.a">Producto</span><br/><span data-i18n="cap.4.title.b">de punta a punta.</span></h3>
+            <p class="cap-block__desc" data-i18n="cap.4.desc">La app, el backend, la capa de datos y el despliegue. Apps nativas en SwiftUI y Jetpack Compose, APIs en Node y Python, Postgres sin ORM, y servidores Linux propios por cliente.</p>
+            <ul class="chip-list">
+              <li>SwiftUI</li><li>Kotlin · Compose</li><li>Node · Fastify</li><li>Next.js</li><li>FastAPI</li><li>PostgreSQL</li><li>Linux · systemd</li>
+            </ul>
+          </div>
+          <div class="cap-block__icon"><i data-lucide="layers"></i></div>
         </article>
       </div>
     </section>
@@ -438,7 +456,7 @@
           <em data-i18n="work.title.b">seleccionado.</em>
         </h2>
         <p class="section__lead" data-i18n="work.lead">
-          Cuatro proyectos que reflejan experiencia en IA aplicada y RAG, mobile nativo y desarrollo web full stack.
+          Siete proyectos. En cuatro de ellos el primer hallazgo fue que mi propia medición estaba mal, y eso está escrito en el README en lugar de corregido en silencio.
         </p>
         <a class="section__link" target="_blank" rel="noopener noreferrer" href="https://github.com/nachodusan">
           <i data-lucide="github"></i>
@@ -451,19 +469,19 @@
         <article class="case reveal">
           <div class="case__head">
             <span class="case__num mono">(01)</span>
-            <span class="case__tag mono" data-i18n="work.p5.tag">App Móvil &amp; IA</span>
+            <span class="case__tag mono" data-i18n="work.p1.tag">Evaluación de agentes</span>
           </div>
-          <h3 class="case__title" data-i18n="work.p5.title">Bitácora — Diario hablado para acompañar la terapia</h3>
+          <h3 class="case__title" data-i18n="work.p1.title">agent-evals — Evaluar lo que el agente hizo, no sólo lo que respondió</h3>
           <ul class="case__points">
-            <li data-i18n="work.p5.b1">Apps nativas en SwiftUI y Jetpack Compose con transcripción de voz on-device: el audio no sale del teléfono.</li>
-            <li data-i18n="work.p5.b2">Memoria larga con pgvector: los resúmenes de cada día se vectorizan, se recuperan y se reordenan en cada turno.</li>
-            <li data-i18n="work.p5.b3">Servidor Node 22 + Fastify sobre PostgreSQL sin ORM, con respuestas en streaming de texto y voz.</li>
-            <li data-i18n="work.p5.b4">Guardas de producto: corte de riesgo duplicado en cliente y servidor, y techo de gasto mensual antes de llamar al proveedor.</li>
+            <li data-i18n="work.p1.b1">Verificación de trayectoria: qué herramientas llamó, en qué orden, de qué errores se recuperó. La respuesta final es sólo una de las comprobaciones.</li>
+            <li data-i18n="work.p1.b2">Un caso pasa si pasaron todos los intentos; cualquier cosa en el medio se reporta como inestable en vez de redondearse a un porcentaje.</li>
+            <li data-i18n="work.p1.b3">Apuntado a mi propio sql-agent encontró tres cosas que una corrida no puede ver: un caso que pasaba era una moneda al aire (0/3, después 1/3), el agente reportaba SQL que nunca había ejecutado, y un cuarto de las “fallas” del modelo débil eran crashes dentro de mi código.</li>
+            <li data-i18n="work.p1.b4">Sin dependencias en el núcleo. 30 tests.</li>
           </ul>
           <ul class="chip-list">
-            <li>SwiftUI</li><li>Kotlin · Compose</li><li>Node 22 + Fastify</li><li>TypeScript</li><li>PostgreSQL + pgvector</li><li>RAG · Embeddings</li><li>TTS</li>
+            <li>Python</li><li>Evaluación de agentes</li><li>Trayectoria</li><li>Flakiness</li><li>pytest</li>
           </ul>
-          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/bitacora-app">
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/agent-evals">
             <span data-i18n="work.cta">Ver en GitHub</span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -472,14 +490,77 @@
         <article class="case reveal">
           <div class="case__head">
             <span class="case__num mono">(02)</span>
-            <span class="case__tag mono" data-i18n="work.p6.tag">RAG &amp; Evaluación de LLM</span>
+            <span class="case__tag mono" data-i18n="work.p2.tag">Agente + evaluación</span>
           </div>
-          <h3 class="case__title" data-i18n="work.p6.title">Tutor IA — Facilitador de aprendizaje sobre material oficial del Mineduc</h3>
+          <h3 class="case__title" data-i18n="work.p2.title">sql-agent — Un loop de agente, y la evaluación que atrapa lo que parece correcto</h3>
           <ul class="case__points">
-            <li data-i18n="work.p6.b1">RAG de doble corpus tipado: el texto del estudiante como fuente citable y la guía docente como pedagogía anclada al objetivo de aprendizaje.</li>
-            <li data-i18n="work.p6.b2">Retrieval híbrido (denso + léxico + RRF) con reranker como gate de abstención: si no está en el material, el tutor se abstiene.</li>
-            <li data-i18n="work.p6.b3">Verificación NLI direccional por oración y detección de premisa falsa contra alucinaciones, corriendo en el chat real.</li>
-            <li data-i18n="work.p6.b4">Harness de evaluación propio con golden set anclado a chunks reales; un experimento de de-risking midió el techo del modelo y sacó matemática del scope.</li>
+            <li data-i18n="work.p2.b1">Preguntas en lenguaje natural respondidas consultando una base: loop LangGraph, tool calling, y cada paso trazado con latencia, tokens y costo.</li>
+            <li data-i18n="work.p2.b2">El esquema de ejemplo está sembrado con trampas —fan-out de joins, montos en centavos, pedidos anulados— para que adivinar se castigue.</li>
+            <li data-i18n="work.p2.b3">6/8 en el golden set, y las dos fallas son SQL válido devolviendo números seguros y equivocados. La prosa se lee perfecta en los dos casos: por eso la corrección se mide contra queries de referencia, no contra el texto.</li>
+            <li data-i18n="work.p2.b4">La primera versión del harness reportaba 3/8 y estaba mal ella misma. Ahora el comparador tiene sus propios tests.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>Python</li><li>LangGraph</li><li>Tool calling</li><li>SQLite</li><li>Evals</li><li>pytest</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/sql-agent">
+            <span data-i18n="work.cta">Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(03)</span>
+            <span class="case__tag mono" data-i18n="work.p3.tag">Benchmarking</span>
+          </div>
+          <h3 class="case__title" data-i18n="work.p3.title">vector-db-bench — Latencia a recall fijo, no a los defaults de cada vendor</h3>
+          <ul class="case__points">
+            <li data-i18n="work.p3.b1">Comparar bases vectoriales con la configuración por defecto mide los defaults. Toda implementación de HNSW negocia precisión por velocidad en una perilla, así que esto la barre y compara a recall igualado.</li>
+            <li data-i18n="work.p3.b2">La brecha crece con la precisión: a recall 0.90 Qdrant y pgvector están a 40% uno del otro; a 0.99 son 3.4×. Un número por motor habría elegido uno de esos al azar.</li>
+            <li data-i18n="work.p3.b3">Chroma queda fuera de la comparación con el motivo escrito: su ef_search se acepta, se persiste, se reporta de vuelta y es inerte —resultados idénticos para las 500 consultas en toda la barrida.</li>
+            <li data-i18n="work.p3.b4">La sección más larga del README son las cinco formas en que el benchmark estuvo mal antes de estar bien, incluido un bug mío que inflaba la latencia de pgvector 2.4×. Tres de esas cinco hoy son guards automáticos.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>Python</li><li>HNSW</li><li>Qdrant</li><li>pgvector</li><li>Chroma</li><li>BGE-M3</li><li>41.896 chunks</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/vector-db-bench">
+            <span data-i18n="work.cta">Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(04)</span>
+            <span class="case__tag mono" data-i18n="work.p4.tag">Inferencia on-device</span>
+          </div>
+          <h3 class="case__title" data-i18n="work.p4.title">tinyllm-ios — El número de tokens/seg que un teléfono realmente sostiene</h3>
+          <ul class="case__points">
+            <li data-i18n="work.p4.b1">MLX Swift corriendo Qwen2.5-0.5B en 4 bits sobre un iPhone 16: 108.85 tok/s en la primera generación, 66.32 sostenidos en 150 corridas seguidas. Los dos son correctos; sólo uno describe usar la cosa.</li>
+            <li data-i18n="work.p4.b2">ProcessInfo.thermalState llega tarde: cuando iOS reportó presión térmica por primera vez, el throughput ya había perdido un cuarto. Una app que sólo degrada al cambiar el estado ya le entregó ese cuarto al usuario.</li>
+            <li data-i18n="work.p4.b3">Una curva que baja tiene una segunda explicación idéntica por dentro —estado acumulado en el proceso—, así que la suite deja enfriar tres minutos y repite el lote. Recuperó el 99% de la ráfaga con la memoria plana en las 300 generaciones: eso convierte “térmico” en un hallazgo y no en una suposición.</li>
+            <li data-i18n="work.p4.b4">La primera medición fueron 12 corridas y decía “retenido 86%, sin throttling”. Aritméticamente correcta, equivocada por 39%. Ese reporte quedó guardado y el informe ahora se advierte solo.</li>
+          </ul>
+          <ul class="chip-list">
+            <li>Swift</li><li>SwiftUI</li><li>MLX Swift</li><li>Qwen2.5 4-bit</li><li>iOS</li><li>Benchmarking</li>
+          </ul>
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/tinyllm-ios">
+            <span data-i18n="work.cta">Ver en GitHub</span>
+            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="case reveal">
+          <div class="case__head">
+            <span class="case__num mono">(05)</span>
+            <span class="case__tag mono" data-i18n="work.p5.tag">RAG & Evaluación de LLM</span>
+          </div>
+          <h3 class="case__title" data-i18n="work.p5.title">Tutor IA — Facilitador de aprendizaje sobre material oficial del Mineduc</h3>
+          <ul class="case__points">
+            <li data-i18n="work.p5.b1">RAG de doble corpus tipado: el texto del estudiante como fuente citable y la guía docente como pedagogía anclada al objetivo de aprendizaje.</li>
+            <li data-i18n="work.p5.b2">Retrieval híbrido (denso + léxico + RRF) con reranker como gate de abstención: si no está en el material, el tutor se abstiene.</li>
+            <li data-i18n="work.p5.b3">Verificación NLI direccional por oración y detección de premisa falsa contra alucinaciones, corriendo en el chat real.</li>
+            <li data-i18n="work.p5.b4">Harness propio con golden set anclado a chunks reales: recall@5 de 88% sobre ~38.000 chunks en 35 asignaturas. Un experimento midió el techo del modelo en matemática y la materia salió del alcance.</li>
           </ul>
           <ul class="chip-list">
             <li>TypeScript</li><li>Next.js</li><li>Turborepo</li><li>PostgreSQL + pgvector</li><li>Retrieval híbrido + RRF</li><li>bge-m3 · Reranker</li><li>NLI (mDeBERTa)</li><li>Python</li>
@@ -492,20 +573,20 @@
 
         <article class="case reveal">
           <div class="case__head">
-            <span class="case__num mono">(03)</span>
-            <span class="case__tag mono" data-i18n="work.p1.tag">Proyecto Web</span>
+            <span class="case__num mono">(06)</span>
+            <span class="case__tag mono" data-i18n="work.p6.tag">App Móvil & IA</span>
           </div>
-          <h3 class="case__title" data-i18n="work.p1.title">Plataforma de Comercio Electrónico</h3>
+          <h3 class="case__title" data-i18n="work.p6.title">Bitácora — Diario hablado para acompañar la terapia</h3>
           <ul class="case__points">
-            <li data-i18n="work.p1.b1">Implementación de sistema de gestión de productos e inventario.</li>
-            <li data-i18n="work.p1.b2">Integración de APIs para manejo dinámico de datos.</li>
-            <li data-i18n="work.p1.b3">Panel administrativo para gestión de ventas y productos.</li>
-            <li data-i18n="work.p1.b4">Interfaz responsiva optimizada para dispositivos móviles.</li>
+            <li data-i18n="work.p6.b1">Apps nativas en SwiftUI y Jetpack Compose con transcripción de voz on-device: el audio no sale del teléfono.</li>
+            <li data-i18n="work.p6.b2">Memoria larga con pgvector: los resúmenes de cada día se vectorizan, se recuperan y se reordenan en cada turno.</li>
+            <li data-i18n="work.p6.b3">El psicólogo recibe un informe mensual donde cada dato está respaldado por una cita literal del paciente, que nunca ve el informe, para no empujarlo al autodiagnóstico.</li>
+            <li data-i18n="work.p6.b4">268 tests automatizados (151 backend, 96 iOS, 21 Android), cola de sincronización offline que no duplica, y techo de gasto mensual con costo por llamada registrado.</li>
           </ul>
           <ul class="chip-list">
-            <li>React</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>REST APIs</li><li>PostgreSQL (SQL)</li>
+            <li>SwiftUI</li><li>Kotlin · Compose</li><li>Node 22 + Fastify</li><li>TypeScript</li><li>PostgreSQL + pgvector</li><li>RAG · Embeddings</li><li>TTS</li>
           </ul>
-          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/inthebox">
+          <a class="case__cta" target="_blank" rel="noopener noreferrer" href="https://github.com/Nachodusan/bitacora-app">
             <span data-i18n="work.cta">Ver en GitHub</span>
             <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -513,15 +594,15 @@
 
         <article class="case reveal">
           <div class="case__head">
-            <span class="case__num mono">(04)</span>
-            <span class="case__tag mono" data-i18n="work.p4.tag">IA Conversacional</span>
+            <span class="case__num mono">(07)</span>
+            <span class="case__tag mono" data-i18n="work.p7.tag">IA Conversacional local</span>
           </div>
-          <h3 class="case__title" data-i18n="work.p4.title">Che IA — Asistente de voz rioplatense con persona porteña</h3>
+          <h3 class="case__title" data-i18n="work.p7.title">Che IA — Asistente de voz rioplatense corriendo entero en local</h3>
           <ul class="case__points">
-            <li data-i18n="work.p4.b1">Sistema conversacional que combina Llama 3.1 8B + RAG sobre 319 ejemplos curados.</li>
-            <li data-i18n="work.p4.b2">TTS local con voz argentina + post-procesador léxico de 150+ reglas.</li>
-            <li data-i18n="work.p4.b3">Pipeline corriendo end-to-end en Apple Silicon, sin dependencias cloud.</li>
-            <li data-i18n="work.p4.b4">Decisión arquitectónica documentada: prompt engineering + retrieval supera al fine-tuning LoRA en datasets chicos de tareas estilísticas (descartadas 3 iteraciones).</li>
+            <li data-i18n="work.p7.b1">Llama 3.1 8B vía MLX + recuperación BM25 sobre 319 ejemplos curados + Piper TTS, end-to-end en Apple Silicon y sin dependencias cloud.</li>
+            <li data-i18n="work.p7.b2">Post-procesador léxico de 150+ reglas que garantiza voseo y vocabulario regional donde el modelo solo no llega.</li>
+            <li data-i18n="work.p7.b3">Decisión arquitectónica documentada con la evidencia A/B: prompt engineering + retrieval le ganó al fine-tuning LoRA en datasets chicos de tareas estilísticas. Tres iteraciones descartadas.</li>
+            <li data-i18n="work.p7.b4">El resultado negativo está publicado en el README en lugar de quedar en una carpeta.</li>
           </ul>
           <ul class="chip-list">
             <li>Llama 3.1 8B (MLX)</li><li>BM25 Retrieval</li><li>Piper TTS</li><li>React + Vite</li><li>FastAPI</li><li>Web Speech API</li>
@@ -624,8 +705,8 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>lucide.createIcons();</script>
-  <script src="i18n.js?v=20261107b"></script>
-  <script src="script.js?v=20261107b"></script>
-  <script type="module" src="badge3d.js?v=20261107b"></script>
+  <script src="i18n.js?v=20261110a"></script>
+  <script src="script.js?v=20261110a"></script>
+  <script type="module" src="badge3d.js?v=20261110a"></script>
 </body>
 </html>
